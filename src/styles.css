@@ -1,8 +1,8 @@
 /* Importar la fuente Futura */
-@import url('https://fonts.googleapis.com/css2?family=Futura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 /* Aplicar Futura a todos los elementos */
 * {
-  font-family: 'Futura', Arial, sans-serif !important;
+  font-family: 'Poppins', Arial, sans-serif !important;
 }
 
 /* Asegurar que Angular Material use Futura */
@@ -16,5 +16,6 @@ mat-sidenav,
 mat-nav-list,
 h1, h2, h3, h4, h5, h6,
 p, span, div, input, textarea, select {
-  font-family: 'Futura', Arial, sans-serif !important;
+  font-family: 'Poppins', Arial, sans-serif !important;
 }
+
