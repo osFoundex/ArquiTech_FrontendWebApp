@@ -1,0 +1,506 @@
+{
+  "users": [
+    {
+      "user_id": 1,
+      "name": "Juan Carlos Zegarra",
+      "email": "juan.zegarra@constructora.com",
+      "password": "hashed_password_123",
+      "role": "Manager",
+      "profile_picture": "https://example.com/profiles/juan_zegarra.jpg"
+    },
+    {
+      "user_id": 2,
+      "name": "Verónica Delgado",
+      "email": "veronica.delgado@constructora.com",
+      "password": "hashed_password_456",
+      "role": "Supervisor",
+      "profile_picture": "https://example.com/profiles/veronica_delgado.jpg"
+    },
+    {
+      "user_id": 3,
+      "name": "Pedro Gómez",
+      "email": "pedro.gomez@developer.com",
+      "password": "hashed_password_789",
+      "role": "Developer",
+      "profile_picture": "https://example.com/profiles/pedro_gomez.jpg"
+    }
+  ],
+  "projects": [
+    {
+      "project_id": 1,
+      "name": "Construcción Edificio A",
+      "start_date": "2025-05-01",
+      "end_date": "2025-12-01",
+      "budget": 120000.00,
+      "status": "Active",
+      "user_id": 1,
+      "image_url": "https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg"
+    },
+    {
+      "project_id": 2,
+      "name": "Tienda B",
+      "start_date": "2025-06-01",
+      "end_date": "2025-09-01",
+      "budget": 50000.00,
+      "status": "Paused",
+      "user_id": 1,
+      "image_url": "https://images.pexels.com/photos/258447/pexels-photo-258447.jpeg"
+    },
+    {
+      "project_id": 3,
+      "name": "Casa C",
+      "start_date": "2025-04-15",
+      "end_date": "2025-10-15",
+      "budget": 80000.00,
+      "status": "Completed",
+      "user_id": 2,
+      "image_url": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg"
+    },
+    {
+      "project_id": 4,
+      "name": "Torre Residencial D",
+      "start_date": "2025-07-01",
+      "end_date": "2026-03-01",
+      "budget": 200000.00,
+      "status": "Active",
+      "user_id": 1,
+      "image_url": "https://images.pexels.com/photos/221506/pexels-photo-221506.jpeg"
+    },
+    {
+      "project_id": 5,
+      "name": "Supermercado E",
+      "start_date": "2025-08-01",
+      "end_date": "2026-01-01",
+      "budget": 150000.00,
+      "status": "Active",
+      "user_id": 2,
+      "image_url": "https://images.pexels.com/photos/221506/pexels-photo-221506.jpeg"
+    },
+    {
+      "project_id": 6,
+      "name": "Carretera F",
+      "start_date": "2025-09-01",
+      "end_date": "2026-06-01",
+      "budget": 250000.00,
+      "status": "Active",
+      "user_id": 3,
+      "image_url": "https://images.pexels.com/photos/2901215/pexels-photo-2901215.jpeg"
+    }
+  ],
+  "workers": [
+    {
+      "worker_id": 1,
+      "name": "Carlos López",
+      "role": "Albañil",
+      "hired_date": "2025-05-02",
+      "project_id": 1
+    },
+    {
+      "worker_id": 2,
+      "name": "María Fernández",
+      "role": "Carpintera",
+      "hired_date": "2025-06-03",
+      "project_id": 2
+    },
+    {
+      "worker_id": 3,
+      "name": "José Ramírez",
+      "role": "Electricista",
+      "hired_date": "2025-04-16",
+      "project_id": 3
+    },
+    {
+      "worker_id": 4,
+      "name": "Laura Sánchez",
+      "role": "Pintora",
+      "hired_date": "2025-05-03",
+      "project_id": 1
+    },
+    {
+      "worker_id": 5,
+      "name": "Miguel Castro",
+      "role": "Plomero",
+      "hired_date": "2025-05-04",
+      "project_id": 1
+    },
+    {
+      "worker_id": 6,
+      "name": "Clara Morales",
+      "role": "Albañil",
+      "hired_date": "2025-06-04",
+      "project_id": 2
+    },
+    {
+      "worker_id": 7,
+      "name": "Andrés Vargas",
+      "role": "Carpintero",
+      "hired_date": "2025-06-05",
+      "project_id": 2
+    },
+    {
+      "worker_id": 8,
+      "name": "Patricia Gómez",
+      "role": "Electricista",
+      "hired_date": "2025-04-17",
+      "project_id": 3
+    },
+    {
+      "worker_id": 9,
+      "name": "Sofía Torres",
+      "role": "Pintora",
+      "hired_date": "2025-04-18",
+      "project_id": 3
+    },
+    {
+      "worker_id": 10,
+      "name": "Raúl Mendoza",
+      "role": "Albañil",
+      "hired_date": "2025-07-02",
+      "project_id": 4
+    },
+    {
+      "worker_id": 11,
+      "name": "Elena Ruiz",
+      "role": "Electricista",
+      "hired_date": "2025-08-02",
+      "project_id": 5
+    },
+    {
+      "worker_id": 12,
+      "name": "Jorge Salazar",
+      "role": "Plomero",
+      "hired_date": "2025-09-02",
+      "project_id": 6
+    }
+  ],
+  "materials": [
+    {
+      "material_id": 1,
+      "project_id": 1,
+      "name": "Cemento",
+      "quantity": 500,
+      "stock": 450,
+      "unit_price": 25.50,
+      "unit": "kg",
+      "provider": "ConstruMax",
+      "provider_ruc": "20456789012",
+      "date": "2025-05-03",
+      "receipt_number": "REC-001",
+      "payment_method": "Transferencia",
+      "status": "Received"
+    },
+    {
+      "material_id": 2,
+      "project_id": 2,
+      "name": "Madera",
+      "quantity": 200,
+      "stock": 180,
+      "unit_price": 15.00,
+      "unit": "m3",
+      "provider": "Maderera Sur",
+      "provider_ruc": "20567890123",
+      "date": "2025-06-04",
+      "receipt_number": "REC-002",
+      "payment_method": "Efectivo",
+      "status": "Received"
+    },
+    {
+      "material_id": 3,
+      "project_id": 3,
+      "name": "Acero",
+      "quantity": 1000,
+      "stock": 900,
+      "unit_price": 5.20,
+      "unit": "kg",
+      "provider": "Aceros Norte",
+      "provider_ruc": "20678901234",
+      "date": "2025-04-17",
+      "receipt_number": "REC-003",
+      "payment_method": "Transferencia",
+      "status": "Received"
+    },
+    {
+      "material_id": 4,
+      "project_id": 1,
+      "name": "Ladrillos",
+      "quantity": 10000,
+      "stock": 9500,
+      "unit_price": 0.50,
+      "unit": "unidad",
+      "provider": "Ladrillera Este",
+      "provider_ruc": "20789012345",
+      "date": "2025-05-04",
+      "receipt_number": "REC-004",
+      "payment_method": "Transferencia",
+      "status": "Received"
+    },
+    {
+      "material_id": 5,
+      "project_id": 1,
+      "name": "Pintura",
+      "quantity": 50,
+      "stock": 45,
+      "unit_price": 30.00,
+      "unit": "litro",
+      "provider": "Pinturas Sur",
+      "provider_ruc": "20901234567",
+      "date": "2025-05-05",
+      "receipt_number": "REC-005",
+      "payment_method": "Efectivo",
+      "status": "Received"
+    },
+    {
+      "material_id": 6,
+      "project_id": 2,
+      "name": "Vidrio",
+      "quantity": 100,
+      "stock": 90,
+      "unit_price": 40.00,
+      "unit": "m2",
+      "provider": "Vidriería Central",
+      "provider_ruc": "20890123456",
+      "date": "2025-06-05",
+      "receipt_number": "REC-006",
+      "payment_method": "Transferencia",
+      "status": "Received"
+    },
+    {
+      "material_id": 7,
+      "project_id": 2,
+      "name": "Cerámica",
+      "quantity": 150,
+      "stock": 140,
+      "unit_price": 22.00,
+      "unit": "m2",
+      "provider": "Cerámicas Oeste",
+      "provider_ruc": "21012345678",
+      "date": "2025-06-06",
+      "receipt_number": "REC-007",
+      "payment_method": "Efectivo",
+      "status": "Received"
+    },
+    {
+      "material_id": 8,
+      "project_id": 3,
+      "name": "Yeso",
+      "quantity": 300,
+      "stock": 280,
+      "unit_price": 10.00,
+      "unit": "kg",
+      "provider": "ConstruMax",
+      "provider_ruc": "20456789012",
+      "date": "2025-04-18",
+      "receipt_number": "REC-008",
+      "payment_method": "Transferencia",
+      "status": "Received"
+    },
+    {
+      "material_id": 9,
+      "project_id": 3,
+      "name": "Pintura",
+      "quantity": 40,
+      "stock": 35,
+      "unit_price": 28.00,
+      "unit": "litro",
+      "provider": "Pinturas Sur",
+      "provider_ruc": "20901234567",
+      "date": "2025-04-19",
+      "receipt_number": "REC-009",
+      "payment_method": "Efectivo",
+      "status": "Received"
+    },
+    {
+      "material_id": 10,
+      "project_id": 4,
+      "name": "Cemento",
+      "quantity": 600,
+      "stock": 550,
+      "unit_price": 26.00,
+      "unit": "kg",
+      "provider": "ConstruMax",
+      "provider_ruc": "20456789012",
+      "date": "2025-07-03",
+      "receipt_number": "REC-010",
+      "payment_method": "Transferencia",
+      "status": "Received"
+    },
+    {
+      "material_id": 11,
+      "project_id": 5,
+      "name": "Madera",
+      "quantity": 250,
+      "stock": 230,
+      "unit_price": 16.00,
+      "unit": "m3",
+      "provider": "Maderera Sur",
+      "provider_ruc": "20567890123",
+      "date": "2025-08-03",
+      "receipt_number": "REC-011",
+      "payment_method": "Efectivo",
+      "status": "Received"
+    },
+    {
+      "material_id": 12,
+      "project_id": 6,
+      "name": "Asfalto",
+      "quantity": 2000,
+      "stock": 1900,
+      "unit_price": 8.00,
+      "unit": "kg",
+      "provider": "Asfaltos Norte",
+      "provider_ruc": "21123456789",
+      "date": "2025-09-03",
+      "receipt_number": "REC-012",
+      "payment_method": "Transferencia",
+      "status": "Received"
+    }
+  ],
+  "machinery": [
+    {
+      "machine_id": 1,
+      "name": "Mezcladora",
+      "license_plate": "MX123",
+      "register_date": "2025-05-02",
+      "estatus": "Operativa",
+      "project_id": 1
+    },
+    {
+      "machine_id": 2,
+      "name": "Excavadora",
+      "license_plate": "EX456",
+      "register_date": "2025-06-03",
+      "estatus": "En Mantenimiento",
+      "project_id": 2
+    },
+    {
+      "machine_id": 3,
+      "name": "Grúa",
+      "license_plate": "GR789",
+      "register_date": "2025-04-16",
+      "estatus": "Operativa",
+      "project_id": 3
+    },
+    {
+      "machine_id": 4,
+      "name": "Bulldozer",
+      "license_plate": "BZ012",
+      "register_date": "2025-05-03",
+      "estatus": "Operativa",
+      "project_id": 1
+    },
+    {
+      "machine_id": 5,
+      "name": "Camión Volquete",
+      "license_plate": "CV345",
+      "register_date": "2025-06-04",
+      "estatus": "Operativa",
+      "project_id": 2
+    },
+    {
+      "machine_id": 6,
+      "name": "Compactadora",
+      "license_plate": "CP678",
+      "register_date": "2025-04-17",
+      "estatus": "Operativa",
+      "project_id": 3
+    },
+    {
+      "machine_id": 7,
+      "name": "Montacargas",
+      "license_plate": "MC901",
+      "register_date": "2025-07-02",
+      "estatus": "Operativa",
+      "project_id": 4
+    },
+    {
+      "machine_id": 8,
+      "name": "Perforadora",
+      "license_plate": "PF234",
+      "register_date": "2025-08-02",
+      "estatus": "Operativa",
+      "project_id": 5
+    },
+    {
+      "machine_id": 9,
+      "name": "Pavimentadora",
+      "license_plate": "PV567",
+      "register_date": "2025-09-02",
+      "estatus": "Operativa",
+      "project_id": 6
+    }
+  ],
+  "incidents": [
+    {
+      "incident_id": 1,
+      "date": "2025-05-05",
+      "incident_type": "Falta de Material",
+      "severity": "Alta",
+      "status": "Pendiente",
+      "project_id": 1
+    },
+    {
+      "incident_id": 2,
+      "date": "2025-06-05",
+      "incident_type": "Accidente Laboral",
+      "severity": "Media",
+      "status": "Resuelto",
+      "project_id": 2
+    },
+    {
+      "incident_id": 3,
+      "date": "2025-04-20",
+      "incident_type": "Falla de Maquinaria",
+      "severity": "Baja",
+      "status": "Resuelto",
+      "project_id": 3
+    },
+    {
+      "incident_id": 4,
+      "date": "2025-05-06",
+      "incident_type": "Retraso en Entrega",
+      "severity": "Media",
+      "status": "Pendiente",
+      "project_id": 1
+    },
+    {
+      "incident_id": 5,
+      "date": "2025-06-06",
+      "incident_type": "Falla de Seguridad",
+      "severity": "Alta",
+      "status": "Pendiente",
+      "project_id": 2
+    },
+    {
+      "incident_id": 6,
+      "date": "2025-04-21",
+      "incident_type": "Falta de Personal",
+      "severity": "Media",
+      "status": "Resuelto",
+      "project_id": 3
+    },
+    {
+      "incident_id": 7,
+      "date": "2025-07-05",
+      "incident_type": "Daño en Material",
+      "severity": "Baja",
+      "status": "Resuelto",
+      "project_id": 4
+    },
+    {
+      "incident_id": 8,
+      "date": "2025-08-05",
+      "incident_type": "Problema de Diseño",
+      "severity": "Alta",
+      "status": "Pendiente",
+      "project_id": 5
+    },
+    {
+      "incident_id": 9,
+      "date": "2025-09-05",
+      "incident_type": "Retraso en Entrega",
+      "severity": "Media",
+      "status": "Pendiente",
+      "project_id": 6
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "login": {
+    "title": "Iniciar Sesión",
+    "email": "Correo Electrónico",
+    "password": "Contraseña",
+    "submit": "Iniciar Sesión",
+    "invalid_credentials": "Credenciales inválidas",
+    "login_failed": "Error al iniciar sesión"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "budget": "Presupuesto",
+    "p_status": "Estado",
+    "view_details": "Ver Detalles",
+    "status": {
+      "Active": "Activo",
+      "Paused": "Pausado",
+      "Completed": "Completado"
+    }
+  },
+  "materials": {
+    "title": "Materiales",
+    "name": "Nombre",
+    "quantity": "Cantidad",
+    "stock": "Existencia",
+    "unit_price": "Precio Unitario",
+    "unit": "Unidad",
+    "provider": "Proveedor",
+    "provider_ruc": "RUC del Proveedor",
+    "date": "Fecha",
+    "receipt_number": "Número de Recibo",
+    "payment_method": "Método de Pago",
+    "m_status": "Estado de Pago",
+    "m_actions": "Acciones",
+    "sort": {
+      "name": "Ordenar por nombre",
+      "quantity": "Ordenar por cantidad",
+      "stock": "Ordenar por existencia",
+      "unit_price": "Ordenar por precio unitario",
+      "unit": "Ordenar por unidad",
+      "provider": "Ordenar por proveedor",
+      "provider_ruc": "Ordenar por RUC del proveedor",
+      "date": "Ordenar por fecha",
+      "receipt_number": "Ordenar por número de recibo",
+      "payment_method": "Ordenar por método de pago",
+      "status": "Ordenar por estado de pago"
+    },
+    "status": {
+      "Received": "Recibido",
+      "Pending": "Pendiente",
+      "Canceled": "Cancelado"
+    },
+    "actions": {
+      "edit": "Editar material",
+      "delete": "Eliminar material"
+    }
+  },
+  "workers": {
+    "title": "Trabajadores",
+    "name": "Nombre",
+    "w_role": "Rol",
+    "hired_date": "Fecha de Contratación",
+    "project_id": "ID del Proyecto",
+    "w_actions": "Acciones",
+    "sort": {
+      "name": "Ordenar por nombre",
+      "role": "Ordenar por rol",
+      "hired_date": "Ordenar por fecha de contratación",
+      "project_id": "Ordenar por ID del proyecto"
+    },
+    "role": {
+      "Engineer": "Ingeniero",
+      "Worker": "Obrero",
+      "Supervisor": "Supervisor"
+    },
+    "actions": {
+      "edit": "Editar trabajador",
+      "delete": "Eliminar trabajador"
+    }
+  },
+  "incidents": {
+    "title": "Incidentes",
+    "date": "Fecha",
+    "incident_type": "Tipo de Incidente",
+    "severity": "Severidad",
+    "i_status": "Estado",
+    "i_actions": "Acciones",
+    "sort": {
+      "date": "Ordenar por fecha",
+      "incident_type": "Ordenar por tipo de incidente",
+      "severity": "Ordenar por severidad",
+      "i_status": "Ordenar por estado"
+    }
+  },
+  "machinery": {
+    "title": "Maquinaria",
+    "name": "Nombre",
+    "license_plate": "Placa",
+    "register_date": "Fecha de Registro",
+    "m_status": "Estado",
+    "m_actions": "Acciones",
+    "sort": {
+      "name": "Ordenar por nombre",
+      "license_plate": "Ordenar por placa",
+      "register_date": "Ordenar por fecha de registro",
+      "m_status": "Ordenar por estado"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidenav -->
+
+  <mat-sidenav mode="side" opened>
+
+    <mat-nav-list>
+      <h3>{{ 'details'}}</h3>
+      @for (option of options; track option.label) {
+        <a
+          mat-list-item
+          [routerLink]="['/details', project_id, option.link]"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: false }"
+        >
+
+          {{ option.label }}
+        </a>
+      }
+      <a
+        mat-list-item
+        [routerLink]="['/projects']"
+        class="back-to-projects"
+      >
+
+        {{ 'back to projects' }}
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Contenido Principal -->
+  <mat-sidenav-content>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

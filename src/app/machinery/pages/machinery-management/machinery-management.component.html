@@ -1,0 +1,42 @@
+<div class="table-wrapper">
+  <h1>{{ 'machinery.title' | translate }}</h1>
+  <!-- Data Table -->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="{{ 'machinery.sort.name' | translate }}">{{ 'machinery.name' | translate }}</th>
+      <td mat-cell *matCellDef="let machinery"> {{ machinery.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="license_plate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="{{ 'machinery.sort.license_plate' | translate }}">{{ 'machinery.license_plate' | translate }}</th>
+      <td mat-cell *matCellDef="let machinery"> {{ machinery.license_plate }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="register_date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="{{ 'machinery.sort.register_date' | translate }}">{{ 'machinery.register_date' | translate }}</th>
+      <td mat-cell *matCellDef="let machinery"> {{ machinery.register_date }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="estatus">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="{{ 'machinery.sort.m_status' | translate }}">{{ 'machinery.m_status' | translate }}</th>
+      <td mat-cell *matCellDef="let machinery"> {{  machinery.estatus  }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>{{ 'machinery.m_actions' | translate }}</th>
+      <td mat-cell *matCellDef="let machinery">
+        <a (click)="onEditItem(machinery)" href="javascript:void(0)" [attr.aria-label]="'machinery.m_actions.edit' | translate">
+          <mat-icon>edit</mat-icon>
+        </a>
+        <a (click)="onDeleteItem(machinery)" href="javascript:void(0)" [attr.aria-label]="'machinery.m_actions.delete' | translate">
+          <mat-icon>delete</mat-icon>
+        </a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToString"></tr>
+    <tr *matRowDef="let row; columns: columnsToString;"
+        [ngClass]="{ 'editable-row': machineryData && machineryData.machine_id === row.id}" mat-row></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 15]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+</div>

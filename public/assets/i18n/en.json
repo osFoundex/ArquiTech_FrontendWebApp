@@ -1,0 +1,111 @@
+{
+  "login": {
+    "title": "Log In",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Log In",
+    "invalid_credentials": "Invalid credentials",
+    "login_failed": "Login failed"
+  },
+  "projects": {
+    "title": "Projects",
+    "budget": "Budget",
+    "p_status": "Status",
+    "view_details": "View Details",
+    "status": {
+      "Active": "Active",
+      "Paused": "Paused",
+      "Completed": "Completed"
+    }
+  },
+  "materials": {
+    "title": "Materials",
+    "name": "Name",
+    "quantity": "Quantity",
+    "stock": "Stock",
+    "unit_price": "Unit Price",
+    "unit": "Unit",
+    "provider": "Provider",
+    "provider_ruc": "Provider RUC",
+    "date": "Date",
+    "receipt_number": "Receipt Number",
+    "payment_method": "Payment Method",
+    "m_status": "Payment Status",
+    "m_actions": "Actions",
+    "sort": {
+      "name": "Sort by name",
+      "quantity": "Sort by quantity",
+      "stock": "Sort by stock",
+      "unit_price": "Sort by unit price",
+      "unit": "Sort by unit",
+      "provider": "Sort by provider",
+      "provider_ruc": "Sort by provider RUC",
+      "date": "Sort by date",
+      "receipt_number": "Sort by receipt number",
+      "payment_method": "Sort by payment method",
+      "status": "Sort by payment status"
+    },
+    "status": {
+      "Received": "Received",
+      "Pending": "Pending",
+      "Canceled": "Canceled"
+    },
+    "actions": {
+      "edit": "Edit material",
+      "delete": "Delete material"
+    }
+  },
+  "workers": {
+    "title": "Workers",
+    "name": "Name",
+    "w_role": "Role",
+    "hired_date": "Hired Date",
+    "project_id": "Project ID",
+    "w_actions": "Actions",
+    "sort": {
+      "name": "Sort by name",
+      "role": "Sort by role",
+      "hired_date": "Sort by hired date",
+      "project_id": "Sort by project ID"
+    },
+    "role": {
+      "Engineer": "Engineer",
+      "Worker": "Worker",
+      "Supervisor": "Supervisor"
+    },
+    "actions": {
+      "edit": "Edit worker",
+      "delete": "Delete worker"
+    }
+  },
+
+  "incidents": {
+    "title": "Incidents",
+    "date": "Date",
+    "incident_type": "Incident Type",
+    "severity": "Severity",
+    "i_status": "Status",
+    "i_actions": "Actions",
+    "sort": {
+      "date": "Sort by date",
+      "incident_type": "Sort by incident type",
+      "severity": "Sort by severity",
+      "i_status": "Sort by status"
+    }
+  },
+  "machinery": {
+    "title": "Machinery",
+    "name": "Name",
+    "license_plate": "License Plate",
+    "register_date": "Register Date",
+    "m_status": "Status",
+    "m_actions": "Actions",
+    "sort": {
+      "name": "Sort by name",
+      "license_plate": "Sort by license plate",
+      "register_date": "Sort by register date",
+      "m_status": "Sort by status"
+    }
+  }
+
+}
