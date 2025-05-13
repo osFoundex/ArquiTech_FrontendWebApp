@@ -23,9 +23,13 @@ jobs:
 
       - name: Build the app
         run: |
-          npm run start  # ajusta si tienes un comando diferente para build
+          npm run start
 
-      - name: Deploy to Firebase Hosting
-        uses: wzieba/Firebase-Action@v2
+      - name: Deploy to Firebase
+        uses: wzieba/firebase-action@v2.2.0
         with:
-          firebase_token: ${{ secrets.FIREBASE_TOKEN }}
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ARQUITECH }}'
+          channelId: live
+          projectId: arquitech
+
