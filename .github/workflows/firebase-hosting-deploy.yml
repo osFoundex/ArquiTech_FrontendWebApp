@@ -1,0 +1,31 @@
+name: Firebase Hosting Deploy
+
+on:
+  push:
+    branches:
+      - main  # o la rama que prefieras
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # ajusta si usas una versión diferente
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Build the app
+        run: |
+          npm run build  # ajusta si tienes un comando diferente para build
+
+      - name: Deploy to Firebase Hosting
+        uses: wzieba/Firebase-Action@v2
+        with:
+          firebase_token: ${{ secrets.FIREBASE_TOKEN }}
