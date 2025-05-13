@@ -3,7 +3,7 @@ name: Firebase Hosting Deploy
 on:
   push:
     branches:
-      - main  # o la rama que prefieras
+      - develop  # o la rama que prefieras
 
 jobs:
   deploy:
@@ -23,7 +23,7 @@ jobs:
 
       - name: Build the app
         run: |
-          npm run build  # ajusta si tienes un comando diferente para build
+          npm run start  # ajusta si tienes un comando diferente para build
 
       - name: Deploy to Firebase Hosting
         uses: wzieba/Firebase-Action@v2
