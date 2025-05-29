@@ -5,24 +5,40 @@
       "name": "Juan Carlos Zegarra",
       "email": "juan.zegarra@constructora.com",
       "password": "hashed_password_123",
-      "role": "Manager",
+      "role": "Supervisor",
       "profile_picture": "https://example.com/profiles/juan_zegarra.jpg"
     },
     {
       "user_id": 2,
       "name": "Verónica Delgado",
       "email": "veronica.delgado@constructora.com",
-      "password": "hashed_password_4567",
+      "password": "hashed_password_456",
       "role": "Supervisor",
       "profile_picture": "https://example.com/profiles/veronica_delgado.jpg"
     },
     {
       "user_id": 3,
       "name": "Pedro Gómez",
-      "email": "pedro.gomez@developer.com",
+      "email": "pedro.gomez@client.com",
       "password": "hashed_password_789",
-      "role": "Developer",
+      "role": "Contractor",
       "profile_picture": "https://example.com/profiles/pedro_gomez.jpg"
+    },
+    {
+      "user_id": 4,
+      "name": "Ana López",
+      "email": "ana.lopez@client.com",
+      "password": "hashed_password_101",
+      "role": "Contractor",
+      "profile_picture": "https://example.com/profiles/ana_lopez.jpg"
+    },
+    {
+      "user_id": 5,
+      "name": "Marcos Rivera",
+      "email": "marcos.rivera@client.com",
+      "password": "hashed_password_102",
+      "role": "Contractor",
+      "profile_picture": "https://example.com/profiles/marcos_rivera.jpg"
     }
   ],
   "projects": [
@@ -33,7 +49,8 @@
       "end_date": "2025-12-01",
       "budget": 120000.00,
       "status": "Active",
-      "user_id": 1,
+      "user_id": 2,
+      "contractor_id": 3,
       "image_url": "https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg"
     },
     {
@@ -43,7 +60,8 @@
       "end_date": "2025-09-01",
       "budget": 50000.00,
       "status": "Paused",
-      "user_id": 1,
+      "user_id": 2,
+      "contractor_id": 4,
       "image_url": "https://images.pexels.com/photos/258447/pexels-photo-258447.jpeg"
     },
     {
@@ -54,6 +72,7 @@
       "budget": 80000.00,
       "status": "Completed",
       "user_id": 2,
+      "contractor_id": 4,
       "image_url": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg"
     },
     {
@@ -63,7 +82,8 @@
       "end_date": "2026-03-01",
       "budget": 200000.00,
       "status": "Active",
-      "user_id": 1,
+      "user_id": 2,
+      "contractor_id": 3,
       "image_url": "https://images.pexels.com/photos/221506/pexels-photo-221506.jpeg"
     },
     {
@@ -74,6 +94,7 @@
       "budget": 150000.00,
       "status": "Active",
       "user_id": 2,
+      "contractor_id": 5,
       "image_url": "https://images.pexels.com/photos/221506/pexels-photo-221506.jpeg"
     },
     {
@@ -83,7 +104,8 @@
       "end_date": "2026-06-01",
       "budget": 250000.00,
       "status": "Active",
-      "user_id": 3,
+      "user_id": 2,
+      "contractor_id": 5,
       "image_url": "https://images.pexels.com/photos/2901215/pexels-photo-2901215.jpeg"
     }
   ],

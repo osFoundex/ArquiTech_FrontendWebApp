@@ -1,10 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
-  <!-- Sidenav -->
-
   <mat-sidenav mode="side" opened>
-
     <mat-nav-list>
-      <h3>{{ 'details'}}</h3>
+      <h3>{{ 'details' | translate }}</h3>
       @for (option of options; track option.label) {
         <a
           mat-list-item
@@ -12,22 +9,14 @@
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: false }"
         >
-
-          {{ option.label }}
+          {{ option.label | translate }}
         </a>
       }
-      <a
-        mat-list-item
-        [routerLink]="['/projects']"
-        class="back-to-projects"
-      >
-
-        {{ 'back to projects' }}
+      <a mat-list-item [routerLink]="['/projects']" class="back-to-projects">
+        {{ 'back to projects' | translate }}
       </a>
     </mat-nav-list>
   </mat-sidenav>
-
-  <!-- Contenido Principal -->
   <mat-sidenav-content>
     <div class="content">
       <router-outlet></router-outlet>

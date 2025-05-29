@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 export interface User {
   user_id: number;
@@ -18,7 +19,7 @@ export interface User {
 export class AuthService {
   private usersUrl = 'http://localhost:3000/users';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   login(email: string, password: string): Observable<{ user: User; token: string } | null> {
     return this.http.get<User[]>(this.usersUrl).pipe(
@@ -26,6 +27,13 @@ export class AuthService {
         const user = users.find(u => u.email === email && u.password === password);
         if (user) {
           const token = 'mock-token-' + Math.random().toString(36).substring(2);
+          this.setUser(user, token);
+          // Redirect based on role
+          if (user.role === 'Contractor') {
+            this.router.navigate(['/contractor/projects']);
+          } else if (user.role === 'Supervisor') {
+            this.router.navigate(['/projects']);
+          }
           return { user, token };
         }
         throw new Error('Invalid credentials');
@@ -41,11 +49,16 @@ export class AuthService {
     localStorage.setItem('user_id', user.user_id.toString());
     localStorage.setItem('token', token);
     localStorage.setItem('user_name', user.name);
+    localStorage.setItem('user_role', user.role);
   }
 
   getUserId(): number | null {
     const userId = localStorage.getItem('user_id');
     return userId ? Number(userId) : null;
+  }
+
+  getUserRole(): string {
+    return localStorage.getItem('user_role') || '';
   }
 
   isAuthenticated(): boolean {
@@ -56,5 +69,7 @@ export class AuthService {
     localStorage.removeItem('user_id');
     localStorage.removeItem('token');
     localStorage.removeItem('user_name');
+    localStorage.removeItem('user_role');
+    this.router.navigate(['/login']);
   }
 }

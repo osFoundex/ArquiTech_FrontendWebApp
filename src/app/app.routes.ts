@@ -5,18 +5,27 @@ import { IncidentManagementComponent } from './incidents/pages/incident-manageme
 import { MachineryManagementComponent } from './machinery/pages/machinery-management/machinery-management.component';
 import { ProjectManagementComponent } from './projects/pages/project-management/project-management.component';
 import { DetailManagementComponent } from './project-details/components/detail-management/detail-management.component';
-import {LogInComponent} from './shared/components/log-in/log-in.component';
-import {authGuard} from './shared/services/auth.guard';
+import { ContractorDetailsComponent } from './contractors/pages/contractor-details/contractor-details.component';
+import { LogInComponent } from './shared/components/log-in/log-in.component';
+import { authGuard } from './shared/services/auth.guard';
+
 const PageNotFoundComponent = () =>
   import('./public/pages/page-not-found/page-not-found.component').then(m => m.PageNotFoundComponent);
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LogInComponent },
-  { path: 'projects', component: ProjectManagementComponent, canActivate: [authGuard] },
+  {
+    path: 'projects',
+    component: ProjectManagementComponent,
+    canActivate: [authGuard],
+    data: { roles: ['Supervisor'] } // Restrict to Supervisor
+  },
   {
     path: 'details/:id',
     component: DetailManagementComponent,
+    canActivate: [authGuard],
+    data: { roles: ['Supervisor'] }, // Restrict to Supervisor
     children: [
       { path: '', redirectTo: 'materials', pathMatch: 'full' },
       { path: 'materials', component: MaterialsManagementComponent },
@@ -24,6 +33,12 @@ export const routes: Routes = [
       { path: 'incidents', component: IncidentManagementComponent },
       { path: 'machinery', component: MachineryManagementComponent }
     ]
+  },
+  {
+    path: 'contractor/projects',
+    component: ContractorDetailsComponent,
+    canActivate: [authGuard],
+    data: { roles: ['Contractor'] } // Restrict to Contractor
   },
   { path: '**', loadComponent: PageNotFoundComponent }
 ];

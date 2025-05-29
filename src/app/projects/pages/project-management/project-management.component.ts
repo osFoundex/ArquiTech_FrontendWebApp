@@ -3,10 +3,15 @@ import { Project } from '../../model/project.entity';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, MatSortHeader } from '@angular/material/sort';
 import {
-  MatCell, MatCellDef,
+  MatCell,
+  MatCellDef,
   MatColumnDef,
   MatHeaderCell,
-  MatHeaderCellDef, MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef,
+  MatHeaderCellDef,
+  MatHeaderRow,
+  MatHeaderRowDef,
+  MatRow,
+  MatRowDef,
   MatTable,
   MatTableDataSource
 } from '@angular/material/table';
@@ -18,12 +23,13 @@ import { AuthService } from '../../../shared/services/auth.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { TranslateModule } from '@ngx-translate/core';
-import { CommonModule } from '@angular/common'; // Añadido para *ngFor
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-project-management',
+  standalone: true,
   imports: [
-    CommonModule, // Añadido para *ngFor
+    CommonModule,
     RouterLink,
     MatTable,
     MatSort,
@@ -46,43 +52,28 @@ import { CommonModule } from '@angular/common'; // Añadido para *ngFor
     TranslateModule
   ],
   templateUrl: './project-management.component.html',
-  styleUrls: [
-    './project-management.component.css'
-  ]
+  styleUrls: ['./project-management.component.css']
 })
 export class ProjectManagementComponent implements OnInit, AfterViewInit {
   protected projectData!: Project;
-
-  protected columnsToString: string[] = [
-    'image_url',
-    'name',
-    'budget',
-    'status'
-  ];
-
-  @ViewChild(MatPaginator, { static: false })
-  protected paginator!: MatPaginator;
-
-  @ViewChild(MatSort)
-  protected sort!: MatSort;
-
+  protected columnsToDisplay: string[] = ['image_url', 'name', 'budget', 'status', 'contractor_id'];
+  @ViewChild(MatPaginator) protected paginator!: MatPaginator;
+  @ViewChild(MatSort) protected sort!: MatSort;
   protected editMode: boolean = false;
-
-  protected dataSource!: MatTableDataSource<any>;
-
+  protected dataSource!: MatTableDataSource<Project>;
   private projectService: ProjectService = inject(ProjectService);
+  private authService: AuthService = inject(AuthService);
   route: ActivatedRoute = inject(ActivatedRoute);
   userId: number | null = 0;
 
-  constructor(private AuthService: AuthService) {
+  constructor() {
     this.editMode = false;
     this.projectData = new Project({});
     this.dataSource = new MatTableDataSource();
-    console.log(this.projectData);
   }
 
   ngOnInit(): void {
-    this.userId = this.AuthService.getUserId();
+    this.userId = this.authService.getUserId();
     this.getAllProjects();
   }
 
@@ -97,7 +88,7 @@ export class ProjectManagementComponent implements OnInit, AfterViewInit {
   }
 
   protected onDeleteItem(item: Project) {
-    this.deleteMaterial(item.project_id);
+    this.deleteProject(item.project_id);
   }
 
   protected onCancelRequest() {
@@ -110,50 +101,43 @@ export class ProjectManagementComponent implements OnInit, AfterViewInit {
     this.editMode = false;
   }
 
-  protected onCourseAddRequested(item: Project) {
+  protected onProjectAddRequested(item: Project) {
     this.projectData = item;
-    this.createMaterial();
+    this.createProject();
     this.resetEditState();
   }
 
-  protected onCourseUpdateRequested(item: Project) {
+  protected onProjectUpdateRequested(item: Project) {
     this.projectData = item;
-    this.updateMaterial();
+    this.updateProject();
     this.resetEditState();
   }
 
   private getAllProjects() {
-    this.projectService.getAll().subscribe((response: Array<Project>) => {
-      this.dataSource.data = response.filter(material => material.user_id === this.userId);
+    this.projectService.getAll().subscribe((response: Project[]) => {
+      this.dataSource.data = response.filter(project => project.user_id === this.userId);
     });
   }
 
-  private getProjectsByUserId() {
-    this.projectService.getAll().subscribe((response: Array<Project>) => {
-      this.dataSource.data = response;
-    });
-  }
-
-  private createMaterial() {
+  private createProject() {
     this.projectService.create(this.projectData).subscribe((response: Project) => {
       this.dataSource.data.push(response);
       this.dataSource.data = this.dataSource.data;
     });
   }
 
-  private updateMaterial() {
-    let materialToUpdate = this.projectData;
-    this.projectService.update(materialToUpdate.project_id, materialToUpdate).subscribe((response: Project) => {
-      let index = this.dataSource.data.findIndex((course: Project) =>
-        course.project_id === response.project_id);
+  private updateProject() {
+    const projectToUpdate = this.projectData;
+    this.projectService.update(projectToUpdate.project_id, projectToUpdate).subscribe((response: Project) => {
+      const index = this.dataSource.data.findIndex((project: Project) => project.project_id === response.project_id);
       this.dataSource.data[index] = response;
       this.dataSource.data = this.dataSource.data;
     });
   }
 
-  private deleteMaterial(id: number) {
+  private deleteProject(id: number) {
     this.projectService.delete(id).subscribe(() => {
-      this.dataSource.data = this.dataSource.data.filter((material: Project) => material.project_id !== id);
+      this.dataSource.data = this.dataSource.data.filter((project: Project) => project.project_id !== id);
     });
   }
 

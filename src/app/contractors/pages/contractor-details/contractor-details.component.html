@@ -1,6 +1,5 @@
 <div class="card-wrapper">
-  <h1>{{ 'projects.title' | translate }}</h1>
-  <!-- Grid de Mat Cards -->
+  <h1>{{ 'contractor.projects.title' | translate }}</h1>
   <div class="card-grid">
     <mat-card *ngFor="let project of dataSource.data" class="project-card">
       <mat-card-header>
@@ -10,14 +9,11 @@
       <mat-card-content>
         <p><strong>{{ 'projects.budget' | translate }}:</strong> {{ project.budget | currency }}</p>
         <p><strong>{{ 'projects.p_status' | translate }}:</strong> {{ project.status }}</p>
-        <p *ngIf="project.contractor_id">
-          <strong>{{ 'projects.contractor_id' | translate }}:</strong> {{ project.contractor_id }}
-        </p>
       </mat-card-content>
       <mat-card-actions>
-        <a mat-button [routerLink]="['/details', project.project_id]" color="accent">
-          {{ 'projects.view_details' | translate }}
-        </a>
+        <button mat-button disabled color="accent">
+          {{ 'contractor.view_details' | translate }}
+        </button>
       </mat-card-actions>
     </mat-card>
   </div>

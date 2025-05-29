@@ -1,14 +1,14 @@
-/* Contenedor principal */
+/* Main container */
 .card-wrapper {
   padding: 16px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
-  width: 800px; /* Ancho fijo */
+  width: 800px; /* fixed width */
 }
 
-/* Título */
+/* Title */
 .card-wrapper h1 {
   font-family: 'Futura', 'Arial', sans-serif;
   font-size: 1.8em;
