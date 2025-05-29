@@ -12,7 +12,7 @@
       "user_id": 2,
       "name": "Verónica Delgado",
       "email": "veronica.delgado@constructora.com",
-      "password": "hashed_password_456",
+      "password": "hashed_password_4567",
       "role": "Supervisor",
       "profile_picture": "https://example.com/profiles/veronica_delgado.jpg"
     },
