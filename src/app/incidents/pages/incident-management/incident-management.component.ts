@@ -16,9 +16,12 @@ import {MatIcon, MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {ActivatedRoute} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
+import { MatDialog } from '@angular/material/dialog';
+import { GenericDialogComponent, DialogConfig } from '../../../shared/components/generic-dialog/generic-dialog.component';
+
 
 @Component({
-  selector: 'app-course-management',
+  selector: 'app-incident-management',
   imports: [
     MatTable,
     MatSort,
@@ -49,12 +52,11 @@ export class IncidentManagementComponent implements OnInit, AfterViewInit {
 
   protected columnsToString: string[] =
     [
-
-  'date',
-  'incident_type',
-  'severity',
-  'status'
-
+      'date',
+      'incident_type',
+      'severity',
+      'status',
+      'actions'
     ];
 
   @ViewChild(MatPaginator, {static: false})
@@ -68,14 +70,15 @@ export class IncidentManagementComponent implements OnInit, AfterViewInit {
   protected dataSource!: MatTableDataSource<any>;
 
   private incidentService: IncidentService = inject(IncidentService);
-
+  private dialog: MatDialog = inject(MatDialog);
   route: ActivatedRoute=inject(ActivatedRoute);
   projectId=0;
+  id=0;
 
   constructor() {
     this.editMode = false;
-
     this.projectId=Number(this.route.snapshot.parent?.params['id']);
+
     this.incidentData = new Incident({});
     this.dataSource = new MatTableDataSource();
     console.log(this.incidentData);
@@ -90,74 +93,124 @@ export class IncidentManagementComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  openAddDialog() {
+    const config: DialogConfig = {
+      titleKey: 'incidents.add_title',
+      submitKey: 'incidents.form.submit',
+      cancelKey: 'incidents.form.cancel',
+      fields: [
+        { name: 'date', labelKey: 'incidents.date', type: 'date', required: true },
+        { name: 'incident_type', labelKey: 'incidents.incident_type', type: 'text', required: true },
+        { name: 'severity',
+          labelKey: 'incidents.i_severity',
+          type: 'select',
+          required: true,
+          options: [
+            { value: 'Low', labelKey: 'incidents.severity.low' },
+            { value: 'Medium', labelKey: 'incidents.severity.medium' },
+            { value: 'High', labelKey: 'incidents.severity.high' }
+          ]},
+        { name: 'status',
+          labelKey: 'incidents.i_status',
+          type: 'select',
+          required: true,
+          options: [
+            { value: 'Pending', labelKey: 'incidents.status.pending' },
+            { value: 'Resolved', labelKey: 'incidents.status.resolved' }
+          ]}
+      ]
+    };
+
+    const dialogRef = this.dialog.open(GenericDialogComponent, {
+      width: '600px',
+      data: config
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (!result) return;
+
+      this.incidentService.create({
+        id: this.id,
+        project_id: this.projectId,
+        ...result
+      }).subscribe({
+        next: response => {
+          this.dataSource.data = [...this.dataSource.data, response];
+        },
+        error: err => {
+          console.error('Error creando incidente:', err);
+        }
+      });
+    });
+  }
+
+
   protected onEditItem(item: Incident) {
-    this.editMode = true;
-    this.incidentData = item;
+    const config: DialogConfig = {
+      titleKey: 'incidents.edit_title',
+      submitKey: 'incidents.form.update',
+      cancelKey: 'incidents.form.cancel',
+      fields: [
+        { name: 'date', labelKey: 'incidents.date', type: 'date', required: true, value: item.date },
+        { name: 'incident_type', labelKey: 'incidents.incident_type', type: 'text', required: true, value: item.incident_type },
+        { name: 'severity',
+          labelKey: 'incidents.i_severity',
+          type: 'select',
+          required: true,
+          value: item.severity,
+          options: [
+            { value: 'Low', labelKey: 'incidents.severity.low' },
+            { value: 'Medium', labelKey: 'incidents.severity.medium' },
+            { value: 'High', labelKey: 'incidents.severity.high' }
+          ]
+        },
+        { name: 'status',
+          labelKey: 'incidents.i_status',
+          type: 'select',
+          required: true,
+          value: item.status,
+          options: [
+            { value: 'Pending', labelKey: 'incidents.status.pending' },
+            { value: 'Resolved', labelKey: 'incidents.status.resolved' }
+          ]
+        }
+      ]
+    };
+
+    const dialogRef = this.dialog.open(GenericDialogComponent, {
+      width: '600px',
+      data: config
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (!result) return;
+      const updatedIncident = { ...item, ...result };
+      this.incidentService.update(item.id, updatedIncident).subscribe({
+        next: response => {
+          const index = this.dataSource.data.findIndex((inc: Incident) => inc.id === response.id);
+          this.dataSource.data[index] = response;
+          this.dataSource.data = [...this.dataSource.data];
+        },
+        error: err => {
+          console.error('Error actualizando incidente:', err);
+        }
+      });
+    });
   }
 
   protected onDeleteItem(item: Incident) {
-    this.deleteMaterial(item.incident_id);
+    this.deleteMaterial(item.id);
   }
 
-  protected onCancelRequest() {
-    this.resetEditState();
-    this.getAllIncidents();
-  }
-
-  private resetEditState() {
-    this.incidentData = new Incident({});
-    this.editMode = false;
-  }
-
-  protected onCourseAddRequested(item: Incident) {
-    this.incidentData = item;
-    this.createMaterial();
-    this.resetEditState()
-  }
-
-  protected onCourseUpdateRequested(item: Incident) {
-    this.incidentData = item;
-    this.updateMaterial();
-    this.resetEditState()
-  }
-
-  /**
-   * Crud operations
-   * @private
-   */
   private getAllIncidents() {
     this.incidentService.getAll().subscribe((response: Array<Incident>) => {
       this.dataSource.data = response.filter(material => material.project_id===this.projectId);
     })
   }
 
-  private getMaterialByProjectId() {
-      this.incidentService.getAll().subscribe((response: Array<Incident>) => {
-      this.dataSource.data = response;
-    })
-  }
-
-
-  private createMaterial() {
-    this.incidentService.create(this.incidentData).subscribe((response: Incident) => {
-      this.dataSource.data.push(response);
-      this.dataSource.data = this.dataSource.data;
-    })
-  }
-
-  private updateMaterial() {
-    let materialToUpdate = this.incidentData;
-    this.incidentService.update(materialToUpdate.incident_id, materialToUpdate).subscribe( (response: Incident) => {
-      let index = this.dataSource.data.findIndex( (course: Incident) =>
-        course.incident_id === response.incident_id);
-      this.dataSource.data[index] = response;
-      this.dataSource.data = this.dataSource.data;
-    })
-  }
-
   private deleteMaterial(id: number) {
     this.incidentService.delete(id).subscribe( () => {
-      this.dataSource.data = this.dataSource.data.filter( (material: Incident) => material.incident_id !== id);
+      this.dataSource.data = this.dataSource.data.filter( (material: Incident) => material.id !== id);
     })
   }
 }

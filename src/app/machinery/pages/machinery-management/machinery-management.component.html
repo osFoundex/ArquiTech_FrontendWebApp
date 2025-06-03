@@ -1,5 +1,11 @@
 <div class="table-wrapper">
   <h1>{{ 'machinery.title' | translate }}</h1>
+  <div class="btn-add-wrapper">
+    <button mat-raised-button class="add-button" (click)="openAddDialog()">
+      <mat-icon class="icon">add</mat-icon>
+      {{ 'machinery.add' | translate }}
+    </button>
+  </div>
   <!-- Data Table -->
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
     <ng-container matColumnDef="name">
@@ -17,18 +23,18 @@
       <td mat-cell *matCellDef="let machinery"> {{ machinery.register_date }}</td>
     </ng-container>
 
-    <ng-container matColumnDef="estatus">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="{{ 'machinery.sort.m_status' | translate }}">{{ 'machinery.m_status' | translate }}</th>
-      <td mat-cell *matCellDef="let machinery"> {{  machinery.estatus  }}</td>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="{{ 'machinery.sort.status' | translate }}">{{ 'machinery.m_status' | translate }}</th>
+      <td mat-cell *matCellDef="let machinery"> {{  ('machinery.status.'+ machinery.status.toLowerCase()) | translate }}</td>
     </ng-container>
 
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>{{ 'machinery.m_actions' | translate }}</th>
       <td mat-cell *matCellDef="let machinery">
-        <a (click)="onEditItem(machinery)" href="javascript:void(0)" [attr.aria-label]="'machinery.m_actions.edit' | translate">
+        <a (click)="onEditItem(machinery)" href="javascript:void(0)" [attr.aria-label]="'machinery.actions.edit' | translate">
           <mat-icon>edit</mat-icon>
         </a>
-        <a (click)="onDeleteItem(machinery)" href="javascript:void(0)" [attr.aria-label]="'machinery.m_actions.delete' | translate">
+        <a (click)="onDeleteItem(machinery)" href="javascript:void(0)" [attr.aria-label]="'machinery.actions.delete' | translate">
           <mat-icon>delete</mat-icon>
         </a>
       </td>
@@ -36,7 +42,7 @@
 
     <tr mat-header-row *matHeaderRowDef="columnsToString"></tr>
     <tr *matRowDef="let row; columns: columnsToString;"
-        [ngClass]="{ 'editable-row': machineryData && machineryData.machine_id === row.id}" mat-row></tr>
+        [ngClass]="{ 'editable-row': machineryData && machineryData.id === row.id}" mat-row></tr>
   </table>
   <mat-paginator [pageSizeOptions]="[5, 10, 15]" [pageSize]="5" showFirstLastButtons></mat-paginator>
 </div>

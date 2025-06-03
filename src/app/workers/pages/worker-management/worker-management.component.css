@@ -192,3 +192,38 @@ mat-paginator .mat-option:hover {
 .mat-elevation-z8 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra más suave */
 }
+
+
+
+.add-button {
+  background-color: #DE7F1A !important;
+  color: white !important;
+  font-size: 0.85em;
+  border-radius: 6px;
+  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-button:hover {
+  transform: scale(1.02);
+}
+
+.add-button mat-icon {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.add-button .icon{
+  color: white !important;
+}
+
+.btn-add-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}

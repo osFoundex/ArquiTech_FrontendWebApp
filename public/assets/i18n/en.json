@@ -18,8 +18,25 @@
       "Completed": "Completed"
     }
   },
+  "detailsProjects": {
+    "details": "Details",
+    "materials": "Materials",
+    "workers": "Workers",
+    "incidents": "Incidents",
+    "machinery": "Machinery",
+    "back": "Back to projects"
+  },
   "materials": {
     "title": "Materials",
+    "title_entry": "Inventory Entry Date",
+    "title_exit": "Inventory Exit Date",
+    "back_to_materials": "Back to Materials",
+    "go_to_entrances": "Go to Entrances",
+    "go_to_exits": "Go to Exits",
+    "add": "Add Material",
+    "add_title": "Add New Material",
+    "edit_title": "Update Material",
+    "material_id": "Code",
     "name": "Name",
     "quantity": "Quantity",
     "stock": "Stock",
@@ -32,7 +49,11 @@
     "payment_method": "Payment Method",
     "m_status": "Payment Status",
     "m_actions": "Actions",
+    "move_to_exit_title": "Move to Exit Date",
+    "quantity_to_move": "Quantity to Move",
+    "exit_date": "Exit Date",
     "sort": {
+      "material_id": "Sort by code",
       "name": "Sort by name",
       "quantity": "Sort by quantity",
       "stock": "Sort by stock",
@@ -46,17 +67,42 @@
       "status": "Sort by payment status"
     },
     "status": {
-      "Received": "Received",
-      "Pending": "Pending",
-      "Canceled": "Canceled"
+      "received": "Received",
+      "pending": "Pending",
+      "canceled": "Canceled"
+    },
+    "pay_method": {
+      "cash": "Cash",
+      "transfer": "Transfer"
     },
     "actions": {
       "edit": "Edit material",
       "delete": "Delete material"
+    },
+    "form": {
+      "name_required": "Name is required",
+      "quantity_required": "Quantity is required",
+      "stock_required": "Stock is required",
+      "unit_price_required": "Unit price is required",
+      "unit_required": "Unit is required",
+      "provider_required": "Provider is required",
+      "provider_ruc_required": "Provider RUC is required",
+      "date_required": "Date is required",
+      "receipt_number_required": "Receipt number is required",
+      "payment_method_required": "Payment method is required",
+      "status_required": "Status is required",
+      "quantity_to_move_required": "Quantity to move is required",
+      "exit_date_required": "Exit date is required",
+      "cancel": "Cancel",
+      "submit": "Save",
+      "update": "Update"
     }
   },
   "workers": {
     "title": "Workers",
+    "add": "Add Worker",
+    "add_title": "Add New Worker",
+    "edit_title": "Update Worker",
     "name": "Name",
     "w_role": "Role",
     "hired_date": "Hired Date",
@@ -69,32 +115,68 @@
       "project_id": "Sort by project ID"
     },
     "role": {
-      "Engineer": "Engineer",
-      "Worker": "Worker",
-      "Supervisor": "Supervisor"
+      "engineer": "Engineer",
+      "worker": "Worker",
+      "supervisor": "Supervisor"
     },
     "actions": {
       "edit": "Edit worker",
       "delete": "Delete worker"
+    },
+    "form": {
+      "name_required": "Name is required",
+      "role_required": "Role is required",
+      "hired_date_required": "Hired date is required",
+      "cancel": "Cancel",
+      "submit": "Save",
+      "update": "Update"
     }
   },
 
   "incidents": {
     "title": "Incidents",
+    "add": "Add Incident",
+    "add_title": "Add New Incident",
+    "edit_title": "Update Incident",
     "date": "Date",
     "incident_type": "Incident Type",
-    "severity": "Severity",
+    "i_severity": "Severity",
     "i_status": "Status",
     "i_actions": "Actions",
     "sort": {
       "date": "Sort by date",
       "incident_type": "Sort by incident type",
       "severity": "Sort by severity",
-      "i_status": "Sort by status"
+      "status": "Sort by status"
+    },
+    "severity": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "status": {
+      "pending": "Pending",
+      "resolved": "Resolved"
+    },
+    "actions": {
+      "edit": "Edit incident",
+      "delete": "Delete incident"
+    },
+    "form": {
+      "date_required": "Date is required",
+      "incident_type_required": "Incident type is required",
+      "severity_required": "Severity is required",
+      "status_required": "Status is required",
+      "cancel": "Cancel",
+      "submit": "Save",
+      "update": "Update"
     }
   },
   "machinery": {
     "title": "Machinery",
+    "add": "Add Machinery",
+    "add_title": "Add New Machinery",
+    "edit_title": "Update Machinery",
     "name": "Name",
     "license_plate": "License Plate",
     "register_date": "Register Date",
@@ -104,7 +186,25 @@
       "name": "Sort by name",
       "license_plate": "Sort by license plate",
       "register_date": "Sort by register date",
-      "m_status": "Sort by status"
+      "status": "Sort by status"
+    },
+    "status": {
+      "available": "Available",
+      "operational": "Operational",
+      "under_maintenance": "Under Maintenance"
+    },
+    "actions": {
+      "edit": "Edit machinery",
+      "delete": "Delete machinery"
+    },
+    "form": {
+      "name_required": "Name is required",
+      "license_plate_required": "License plate is required",
+      "register_date_required": "Register date is required",
+      "status_required": "Status is required",
+      "cancel": "Cancel",
+      "submit": "Save",
+      "update": "Update"
     }
   }
 

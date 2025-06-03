@@ -16,9 +16,11 @@ import {MatIcon, MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {ActivatedRoute} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
+import {MatDialog} from '@angular/material/dialog';
+import { GenericDialogComponent, DialogConfig } from '../../../shared/components/generic-dialog/generic-dialog.component';
 
 @Component({
-  selector: 'app-course-management',
+  selector: 'app-machinery-management',
   imports: [
     MatTable,
     MatSort,
@@ -39,7 +41,6 @@ import {TranslateModule} from '@ngx-translate/core';
     MatIconModule,
     MatButtonModule,
     TranslateModule
-
   ],
   templateUrl: 'machinery-management.component.html',
   styleUrl: 'machinery-management.component.css'
@@ -50,12 +51,11 @@ export class MachineryManagementComponent implements OnInit, AfterViewInit {
 
   protected columnsToString: string[] =
     [
-
       'name',
       'license_plate',
       'register_date',
-      'estatus',
-
+      'status',
+      'actions'
     ];
 
   @ViewChild(MatPaginator, {static: false})
@@ -67,11 +67,12 @@ export class MachineryManagementComponent implements OnInit, AfterViewInit {
   protected editMode: boolean = false;
 
   protected dataSource!: MatTableDataSource<any>;
-
+  private dialog: MatDialog = inject(MatDialog);
   private machineryService: MachineryService = inject(MachineryService);
 
   route: ActivatedRoute=inject(ActivatedRoute);
   projectId=0;
+  id = 0;
 
 
   constructor() {
@@ -92,35 +93,99 @@ export class MachineryManagementComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  openAddDialog() {
+    const config: DialogConfig = {
+      titleKey: 'machinery.add_title',
+      submitKey: 'machinery.form.submit',
+      cancelKey: 'machinery.form.cancel',
+      fields: [
+        { name: 'name', labelKey: 'machinery.name', type: 'text', required: true },
+        { name: 'license_plate', labelKey: 'machinery.license_plate', type: 'text', required: true },
+        { name: 'register_date', labelKey: 'machinery.register_date', type: 'date', required: true },
+        {
+          name: 'status',
+          labelKey: 'machinery.m_status',
+          type: 'select',
+          required: true,
+          options: [
+            { value: 'Available', labelKey: 'machinery.status.available' },
+            { value: 'Operational', labelKey: 'machinery.status.operational' },
+            { value: 'Under Maintenance', labelKey: 'machinery.status.under_maintenance' }
+          ]
+        }
+      ]
+    };
+
+    const dialogRef = this.dialog.open(GenericDialogComponent, {
+      width: '600px',
+      data: config
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (!result) return;
+
+      this.machineryService.create({
+        id: this.id,
+        project_id: this.projectId,
+        ...result
+      }).subscribe({
+        next: response => {
+          this.dataSource.data = [...this.dataSource.data, response];
+        },
+        error: err => {
+          console.error('Error creando maquinaria:', err);
+        }
+      });
+    });
+  }
+
   protected onEditItem(item: Machinery) {
-    this.editMode = true;
-    this.machineryData = item;
+    const config: DialogConfig = {
+      titleKey: 'machinery.edit_title',
+      submitKey: 'machinery.form.update',
+      cancelKey: 'machinery.form.cancel',
+      fields: [
+        { name: 'name', labelKey: 'machinery.name', type: 'text', required: true, value: item.name },
+        { name: 'license_plate', labelKey: 'machinery.license_plate', type: 'text', required: true, value: item.license_plate },
+        { name: 'register_date', labelKey: 'machinery.register_date', type: 'date', required: true, value: item.register_date },
+        {
+          name: 'status',
+          labelKey: 'machinery.m_status',
+          type: 'select',
+          required: true,
+          value: item.status,
+          options: [
+            { value: 'Available', labelKey: 'machinery.status.available' },
+            { value: 'Operational', labelKey: 'machinery.status.operational' },
+            { value: 'Under Maintenance', labelKey: 'machinery.status.under_maintenance' }
+          ]
+        }
+      ]
+    };
+
+    const dialogRef = this.dialog.open(GenericDialogComponent, {
+      width: '600px',
+      data: config
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (!result) return;
+      const updatedMachinery = { ...item, ...result };
+      this.machineryService.update(item.id, updatedMachinery).subscribe({
+        next: response => {
+          const index = this.dataSource.data.findIndex((m: Machinery) => m.id === response.id);
+          this.dataSource.data[index] = response;
+          this.dataSource.data = [...this.dataSource.data];
+        },
+        error: err => {
+          console.error('Error actualizando maquinaria:', err);
+        }
+      });
+    });
   }
 
   protected onDeleteItem(item: Machinery) {
-    this.deleteMaterial(item.machine_id);
-  }
-
-  protected onCancelRequest() {
-    this.resetEditState();
-    this.getAllMachines();
-  }
-
-  private resetEditState() {
-    this.machineryData = new Machinery({});
-    this.editMode = false;
-  }
-
-  protected onCourseAddRequested(item: Machinery) {
-    this.machineryData = item;
-    this.createMaterial();
-    this.resetEditState()
-  }
-
-  protected onCourseUpdateRequested(item: Machinery) {
-    this.machineryData = item;
-    this.updateMaterial();
-    this.resetEditState()
+    this.deleteMaterial(item.id);
   }
 
   /**
@@ -133,33 +198,10 @@ export class MachineryManagementComponent implements OnInit, AfterViewInit {
     })
   }
 
-  private getMaterialByProjectId() {
-    this.machineryService.getAll().subscribe((response: Array<Machinery>) => {
-      this.dataSource.data = response;
-    })
-  }
-
-
-  private createMaterial() {
-    this.machineryService.create(this.machineryData).subscribe((response: Machinery) => {
-      this.dataSource.data.push(response);
-      this.dataSource.data = this.dataSource.data;
-    })
-  }
-
-  private updateMaterial() {
-    let materialToUpdate = this.machineryData;
-    this.machineryService.update(materialToUpdate.machine_id, materialToUpdate).subscribe( (response: Machinery) => {
-      let index = this.dataSource.data.findIndex( (course: Machinery) =>
-        course.machine_id === response.machine_id);
-      this.dataSource.data[index] = response;
-      this.dataSource.data = this.dataSource.data;
-    })
-  }
 
   private deleteMaterial(id: number) {
     this.machineryService.delete(id).subscribe( () => {
-      this.dataSource.data = this.dataSource.data.filter( (material: Machinery) => material.machine_id !== id);
+      this.dataSource.data = this.dataSource.data.filter( (material: Machinery) => material.id !== id);
     })
   }
 }

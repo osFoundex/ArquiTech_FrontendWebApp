@@ -15,11 +15,12 @@ import {NgClass} from '@angular/common';
 import {MatIcon, MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {ActivatedRoute} from '@angular/router';
-
-import {RouterLink} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
+import {MatDialog} from '@angular/material/dialog';
+import { GenericDialogComponent, DialogConfig } from '../../../shared/components/generic-dialog/generic-dialog.component';
+
 @Component({
-  selector: 'app-course-management',
+  selector: 'app-worker-management',
   imports: [
     MatTable,
     MatSort,
@@ -39,9 +40,7 @@ import {TranslateModule} from '@ngx-translate/core';
 
     MatIconModule,
     MatButtonModule,
-    TranslateModule,
-    RouterLink
-
+    TranslateModule
   ],
   templateUrl: './worker-management.component.html',
   styleUrl: './worker-management.component.css'
@@ -52,9 +51,10 @@ export class workersManagementComponent implements OnInit, AfterViewInit {
 
   protected columnsToString: string[] =
     ['name',
- 'role',
+      'role',
       'hired_date',
-      'project_id'
+      'project_id',
+      'actions'
     ];
 
   @ViewChild(MatPaginator, {static: false})
@@ -68,9 +68,11 @@ export class workersManagementComponent implements OnInit, AfterViewInit {
   protected dataSource!: MatTableDataSource<any>;
 
   private workerService: workerService = inject(workerService);
+  private dialog: MatDialog = inject(MatDialog);
 
   route: ActivatedRoute=inject(ActivatedRoute);
   projectId=0;
+  id=0;
 
 
   constructor() {
@@ -91,35 +93,76 @@ export class workersManagementComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  openAddDialog() {
+    const config: DialogConfig = {
+      titleKey: 'workers.add_title',
+      submitKey: 'workers.form.submit',
+      cancelKey: 'workers.form.cancel',
+      fields: [
+        { name: 'name', labelKey: 'workers.name', type: 'text', required: true },
+        { name: 'role', labelKey: 'workers.w_role', type: 'text', required: true},
+        { name: 'hired_date', labelKey: 'workers.hired_date', type: 'date', required: true }
+      ]
+    };
+
+    const dialogRef = this.dialog.open(GenericDialogComponent, {
+      width: '600px',
+      data: config
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (!result) return;
+
+      this.workerService.create({
+        id: this.id,
+        project_id: this.projectId,
+        ...result
+      }).subscribe({
+        next: response => {
+          this.dataSource.data = [...this.dataSource.data, response];
+        },
+        error: err => {
+          console.error('Error creando trabajador:', err);
+        }
+      });
+    });
+  }
+
   protected onEditItem(item: Worker) {
-    this.editMode = true;
-    this.workerData = item;
+    const config: DialogConfig = {
+      titleKey: 'workers.edit_title',
+      submitKey: 'workers.form.update',
+      cancelKey: 'workers.form.cancel',
+      fields: [
+        { name: 'name', labelKey: 'workers.name', type: 'text', required: true, value: item.name },
+        { name: 'role', labelKey: 'workers.w_role', type: 'text', required: true, value: item.role},
+        { name: 'hired_date', labelKey: 'workers.hired_date', type: 'date', required: true, value: item.hired_date }
+      ]
+    };
+
+    const dialogRef = this.dialog.open(GenericDialogComponent, {
+      width: '600px',
+      data: config
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (!result) return;
+      const updatedWorker = { ...item, ...result };
+      this.workerService.update(item.id, updatedWorker).subscribe({
+        next: response => {
+          const index = this.dataSource.data.findIndex((w: Worker) => w.id === response.id);
+          this.dataSource.data[index] = response;
+          this.dataSource.data = [...this.dataSource.data];
+        },
+        error: err => {
+          console.error('Error actualizando trabajador:', err);
+        }
+      });
+    });
   }
 
   protected onDeleteItem(item: Worker) {
-    this.deleteworker(item.worker_id);
-  }
-
-  protected onCancelRequest() {
-    this.resetEditState();
-    this.getAllworkers();
-  }
-
-  private resetEditState() {
-    this.workerData = new Worker({});
-    this.editMode = false;
-  }
-
-  protected onCourseAddRequested(item: Worker) {
-    this.workerData = item;
-    this.createworker();
-    this.resetEditState()
-  }
-
-  protected onCourseUpdateRequested(item: Worker) {
-    this.workerData = item;
-    this.updateworker();
-    this.resetEditState()
+    this.deleteworker(item.id);
   }
 
   /**
@@ -132,33 +175,9 @@ export class workersManagementComponent implements OnInit, AfterViewInit {
     })
   }
 
-  private getworkerByProjectId() {
-    this.workerService.getAll().subscribe((response: Array<Worker>) => {
-      this.dataSource.data = response;
-    })
-  }
-
-
-  private createworker() {
-    this.workerService.create(this.workerData).subscribe((response: Worker) => {
-      this.dataSource.data.push(response);
-      this.dataSource.data = this.dataSource.data;
-    })
-  }
-
-  private updateworker() {
-    let materialToUpdate = this.workerData;
-    this.workerService.update(materialToUpdate.worker_id, materialToUpdate).subscribe( (response: Worker) => {
-      let index = this.dataSource.data.findIndex( (course: Worker) =>
-        course.worker_id === response.worker_id);
-      this.dataSource.data[index] = response;
-      this.dataSource.data = this.dataSource.data;
-    })
-  }
-
   private deleteworker(id: number) {
     this.workerService.delete(id).subscribe( () => {
-      this.dataSource.data = this.dataSource.data.filter( (material: Worker) => material.worker_id !== id);
+      this.dataSource.data = this.dataSource.data.filter( (material: Worker) => material.id !== id);
     })
   }
 }

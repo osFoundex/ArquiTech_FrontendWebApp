@@ -4,11 +4,10 @@
   background-color: #fff; /* Fondo blanco */
   border-radius: 8px; /* Bordes redondeados */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-  display: inline-block; /* Ajustar al contenido de la tabla */
   margin: 0 auto; /* Centrar */
+  width: 800px; /* Ancho completo */
 }
 
-/* Título */
 .table-wrapper h1 {
   font-family: 'Futura', 'Arial', sans-serif; /* Fuente Futura con fallback */
   font-size: 1.8em; /* Tamaño reducido */
@@ -19,7 +18,7 @@
 
 /* Tabla */
 mat-table {
-  width: auto; /* Ajustar al contenido */
+  width: 100%; /* Ajustar al contenido */
   display: inline-table; /* Hacer que la tabla se ajuste al contenido */
   background-color: #fff;
   font-family: 'Futura', 'Arial', sans-serif; /* Fuente Futura */
@@ -32,7 +31,7 @@ mat-header-cell {
   font-weight: bold;
   color: #2F2E2D; /* Gris oscuro */
   background-color: #F8F5F1; /* Fondo blanco cremoso */
-  padding: 8px 12px; /* Padding reducido */
+  padding: 6px 4px; /* Padding reducido */
   text-transform: uppercase;
   border-bottom: 2px solid #DE7F1A; /* Línea naranja */
   white-space: nowrap; /* Evitar que el texto se divida */
@@ -42,7 +41,7 @@ mat-header-cell {
 mat-cell {
   font-size: 0.8em; /* Texto más pequeño para compactar */
   color: #2F2E2D; /* Gris oscuro */
-  padding: 8px 12px; /* Padding reducido */
+  padding: 6px 4px; /* Padding reducido */
   border-bottom: 1px solid #e0e0e0; /* Línea gris clara */
   white-space: nowrap; /* Evitar que el texto se divida */
 }
@@ -60,7 +59,7 @@ mat-row:hover {
 
 /* Fila editable (si está seleccionada) */
 mat-row.editable-row {
-  background-color: rgba(222, 127, 26, 0.2); /* Naranja más visible */
+  background-color: #f5f5f5; /* Naranja más visible */
 }
 
 /* Enlaces en la columna de acciones */
@@ -186,3 +185,47 @@ mat-paginator .mat-option:hover {
 .mat-elevation-z8 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra más suave */
 }
+
+
+.btns-wrapper {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.view-button {
+  background-color: #DE7F1A !important;
+  color: white !important;
+  font-size: 0.80em;
+  border-radius: 6px;
+  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.view-button:hover {
+  transform: scale(1.02);
+}
+
+.view-button mat-icon {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.view-button mat-icon {
+  color: white !important;
+}
+
+.entrance-btn{
+  margin-right: 12px;
+}
+
+.exit-btn{
+  margin-left: 12px;
+}
+

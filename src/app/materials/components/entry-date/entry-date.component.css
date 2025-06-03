@@ -1,0 +1,118 @@
+.table-entry-wrapper {
+  padding: 20px; /* Espaciado interno */
+  background-color: #fff; /* Fondo blanco */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  display: inline-block; /* Ajustar al contenido de la tabla */
+  margin: 0 auto; /* Centrar */
+}
+
+mat-table {
+  width: 100%; /* Ajustar al contenido */
+  display: inline-table; /* Hacer que la tabla se ajuste al contenido */
+  background-color: #fff;
+  font-family: 'Futura', 'Arial', sans-serif; /* Fuente Futura */
+  border-collapse: collapse; /* Evitar espacios entre celdas */
+}
+
+mat-header-cell {
+  font-size: 0.85em; /* Texto más pequeño */
+  font-weight: bold;
+  color: #2F2E2D; /* Gris oscuro */
+  background-color: #F8F5F1; /* Fondo blanco cremoso */
+  padding: 8px 12px; /* Padding reducido */
+  text-transform: uppercase;
+  border-bottom: 2px solid #DE7F1A; /* Línea naranja */
+  white-space: nowrap; /* Evitar que el texto se divida */
+}
+
+mat-cell {
+  font-size: 0.8em; /* Texto más pequeño para compactar */
+  color: #2F2E2D; /* Gris oscuro */
+  padding: 8px 12px; /* Padding reducido */
+  border-bottom: 1px solid #e0e0e0; /* Línea gris clara */
+  white-space: nowrap; /* Evitar que el texto se divida */
+}
+
+mat-row {
+  height: 36px; /* Altura de fila reducida */
+  transition: background-color 0.2s ease-in; /* Animación suave para hover */
+}
+
+mat-row.editable-row {
+  background-color: #f5f5f5; /* Naranja más visible */
+}
+
+mat-row:hover {
+  background-color: rgba(222, 127, 26, 0.1); /* Naranja claro con opacidad */
+}
+
+mat-cell a {
+  color: #DE7F1A; /* Naranja */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease-in, transform 0.2s ease-in; /* Animación suave */
+}
+
+mat-cell a:hover {
+  color: #b36515; /* Naranja más oscuro */
+  text-decoration: underline;
+  transform: scale(1.05); /* Ligera ampliación en hover */
+}
+
+mat-paginator {
+  background-color: #F8F5F1; /* Fondo blanco cremoso */
+  font-family: 'Futura', 'Arial', sans-serif; /* Fuente Futura */
+  padding: 8px 12px; /* Padding compacto */
+  border-radius: 8px; /* Bordes redondeados */
+  margin-top: 12px; /* Espacio reducido */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  display: flex; /* Alinear elementos */
+  justify-content: flex-end; /* Alinear a la derecha */
+  align-items: center;
+}
+
+
+
+/* Efecto de elevación en la tabla */
+.mat-elevation-z8 {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+}
+
+.button {
+  background-color: #DE7F1A !important;
+  color: white !important;
+  font-size: 0.82em;
+  border-radius: 6px;
+  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  transform: scale(1.02);
+}
+
+.button mat-icon {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.button .icon{
+  color: white !important;
+}
+
+.buttons-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.back-btn{
+  margin-top: 1.2rem;
+}

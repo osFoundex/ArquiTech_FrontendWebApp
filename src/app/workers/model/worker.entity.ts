@@ -1,12 +1,12 @@
 export class Worker {
-  worker_id: number;
+  id: number;
   name: string;
   role: string;
   hired_date: string;
   project_id: number;
 
-  constructor(worker:{worker_id?: number, name?: string, role?: string, hired_date?: string, project_id?: number}) {
-    this.worker_id = worker.worker_id || 0;
+  constructor(worker:{id?: number, name?: string, role?: string, hired_date?: string, project_id?: number}) {
+    this.id = worker.id || 0;
     this.name = worker.name || "";
     this.role = worker.role || "";
     this.hired_date = worker.hired_date || "";

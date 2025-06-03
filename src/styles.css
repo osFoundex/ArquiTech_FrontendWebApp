@@ -19,3 +19,19 @@ p, span, div, input, textarea, select {
   font-family: 'Poppins', Arial, sans-serif !important;
 }
 
+
+.mat-icon, .material-icons {
+  font-family: 'Material Icons' !important;
+  font-style: normal;
+  font-weight: normal;
+  color: #d32f2f;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}

@@ -18,8 +18,25 @@
       "Completed": "Completado"
     }
   },
+  "detailsProjects": {
+    "details": "Detalles",
+    "materials": "Materiales",
+    "workers": "Trabajadores",
+    "incidents": "Incidentes",
+    "machinery": "Maquinaria",
+    "back": "Volver a proyectos"
+  },
   "materials": {
     "title": "Materiales",
+    "title_entry": "Fecha de Entrada de Inventario",
+    "title_exit": "Fecha de salida del Inventario",
+    "back_to_materials": "Volver a Materiales",
+    "go_to_entrances": "Ir a Entradas",
+    "go_to_exits": "Ir a Salidas",
+    "add": "Añadir Material",
+    "add_title": "Añadir Nuevo Material",
+    "edit_title": "Editar Material",
+    "material_id": "Código",
     "name": "Nombre",
     "quantity": "Cantidad",
     "stock": "Existencia",
@@ -32,7 +49,11 @@
     "payment_method": "Método de Pago",
     "m_status": "Estado de Pago",
     "m_actions": "Acciones",
+    "move_to_exit_title": "Mover a Fecha de Salida",
+    "quantity_to_move": "Cantidad a Mover",
+    "exit_date": "Fecha de Salida",
     "sort": {
+      "material_id": "Ordenar por código",
       "name": "Ordenar por nombre",
       "quantity": "Ordenar por cantidad",
       "stock": "Ordenar por existencia",
@@ -46,17 +67,41 @@
       "status": "Ordenar por estado de pago"
     },
     "status": {
-      "Received": "Recibido",
-      "Pending": "Pendiente",
-      "Canceled": "Cancelado"
+      "received": "Recibido",
+      "pending": "Pendiente",
+      "canceled": "Cancelado"
+    },
+    "pay_method": {
+      "cash": "Efectivo",
+      "transfer": "Transferencia"
     },
     "actions": {
       "edit": "Editar material",
       "delete": "Eliminar material"
+    },
+    "form": {
+      "name_required": "El nombre es obligatorio",
+      "quantity_required": "La cantidad es obligatoria",
+      "stock_required": "La existencia es obligatoria",
+      "unit_price_required": "El precio unitario es obligatorio",
+      "unit_required": "La unidad es obligatoria",
+      "provider_required": "El proveedor es obligatorio",
+      "provider_ruc_required": "El RUC del proveedor es obligatorio",
+      "date_required": "La fecha es obligatoria",
+      "receipt_number_required": "El número de recibo es obligatorio",
+      "payment_method_required": "El método de pago es obligatorio",
+      "status_required": "El estado es obligatorio",
+      "quantity_to_move_required": "La cantidad a mover es obligatoria",
+      "exit_date_required": "La fecha de salida es obligatoria",
+      "cancel": "Cancelar",
+      "submit": "Guardar",
+      "update": "Actualizar"
     }
   },
   "workers": {
     "title": "Trabajadores",
+    "add": "Añadir Trabajador",
+    "add_title": "Añadir Nuevo Trabajador",
     "name": "Nombre",
     "w_role": "Rol",
     "hired_date": "Fecha de Contratación",
@@ -69,31 +114,65 @@
       "project_id": "Ordenar por ID del proyecto"
     },
     "role": {
-      "Engineer": "Ingeniero",
-      "Worker": "Obrero",
-      "Supervisor": "Supervisor"
+      "engineer": "Ingeniero",
+      "worker": "Obrero",
+      "supervisor": "Supervisor"
     },
     "actions": {
       "edit": "Editar trabajador",
       "delete": "Eliminar trabajador"
+    },
+    "form": {
+      "name_required": "El nombre es obligatorio",
+      "role_required": "El rol es obligatorio",
+      "hired_date_required": "La fecha de contratación es obligatoria",
+      "cancel": "Cancelar",
+      "submit": "Guardar",
+      "update": "Actualizar"
     }
   },
   "incidents": {
     "title": "Incidentes",
+    "add": "Añadir Incidente",
+    "add_title": "Añadir Nuevo Incidente",
     "date": "Fecha",
     "incident_type": "Tipo de Incidente",
-    "severity": "Severidad",
+    "i_severity": "Severidad",
     "i_status": "Estado",
     "i_actions": "Acciones",
     "sort": {
       "date": "Ordenar por fecha",
       "incident_type": "Ordenar por tipo de incidente",
       "severity": "Ordenar por severidad",
-      "i_status": "Ordenar por estado"
+      "status": "Ordenar por estado"
+    },
+    "severity": {
+      "low": "Baja",
+      "medium": "Media",
+      "high": "Alta"
+    },
+    "status": {
+      "pending": "Pendiente",
+      "resolved": "Resuelto"
+    },
+    "actions": {
+      "edit": "Editar incidente",
+      "delete": "Eliminar incidente"
+    },
+    "form": {
+      "date_required": "La fecha es obligatoria",
+      "incident_type_required": "El tipo de incidente es obligatorio",
+      "severity_required": "La severidad es obligatoria",
+      "status_required": "El estado es obligatorio",
+      "cancel": "Cancelar",
+      "submit": "Guardar",
+      "update": "Actualizar"
     }
   },
   "machinery": {
     "title": "Maquinaria",
+    "add": "Añadir Maquinaria",
+    "add_title": "Añadir Nueva Maquinaria",
     "name": "Nombre",
     "license_plate": "Placa",
     "register_date": "Fecha de Registro",
@@ -103,7 +182,26 @@
       "name": "Ordenar por nombre",
       "license_plate": "Ordenar por placa",
       "register_date": "Ordenar por fecha de registro",
-      "m_status": "Ordenar por estado"
+      "status": "Ordenar por estado"
+    },
+    "status": {
+      "available": "Disponible",
+      "operational": "Operativo",
+      "under_maintenance": "En Mantenimiento"
+    },
+    "actions": {
+      "edit": "Editar maquinaria",
+      "delete": "Eliminar maquinaria"
+    },
+    "form": {
+      "name_required": "El nombre es obligatorio",
+      "license_plate_required": "La placa es obligatoria",
+      "register_date_required": "La fecha de registro es obligatoria",
+      "status_required": "El estado es obligatorio",
+      "cancel": "Cancelar",
+      "submit": "Guardar",
+      "update": "Actualizar"
     }
   }
+
 }
