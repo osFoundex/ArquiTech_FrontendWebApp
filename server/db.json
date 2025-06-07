@@ -230,6 +230,71 @@
       "hired_date": "2025-02-10"
     }
   ],
+  "tasks": [
+    {
+      "id": 1,
+      "id_project": 1,
+      "id_worker": 1,
+      "description": "Excavar los cimientos del edificio A",
+      "start_date": "2025-05-01",
+      "due_date": "2025-05-16",
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "id_project": 1,
+      "id_worker": 4,
+      "description": "Pintar las paredes del primer piso",
+      "start_date": "2025-07-07",
+      "due_date": "2025-07-09",
+      "status": "done"
+    },
+    {
+      "id": 3,
+      "id_project": 2,
+      "id_worker": 2,
+      "description": "Instalar las ventanas de la tienda B",
+      "start_date": "2025-06-01",
+      "due_date": "2025-06-10",
+      "status": "Pending"
+    },
+    {
+      "id": 4,
+      "id_project": 3,
+      "id_worker": 3,
+      "description": "Colocar el techo de la casa C",
+      "start_date": "2025-04-15",
+      "due_date": "2025-04-30",
+      "status": "Completed"
+    },
+    {
+      "id": 5,
+      "id_project": 4,
+      "id_worker": 10,
+      "description": "Instalar la estructura de la torre D",
+      "start_date": "2025-07-01",
+      "due_date": "2025-08-01",
+      "status": "In Progress"
+    },
+    {
+      "id": 6,
+      "id_project": 5,
+      "id_worker": 11,
+      "description": "Pavimentar el suelo del supermercado E",
+      "start_date": "2025-08-01",
+      "due_date": "2025-09-01",
+      "status": "Pending"
+    },
+    {
+      "id": 7,
+      "id_project": 6,
+      "id_worker": 12,
+      "description": "Construir la base de la carretera F",
+      "start_date": "2025-09-01",
+      "due_date": "2025-10-01",
+      "status": "Pending"
+    }
+  ],
   "entry-date": [
     {
       "id": 1,

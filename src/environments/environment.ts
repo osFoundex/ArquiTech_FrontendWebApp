@@ -4,6 +4,7 @@ export const environment = {
   entryDateMaterialsEndpointPath: '/entry-date',
   exitDateMaterialsEndpointPath: '/exit-date',
   workersEndpointPath: '/workers',
+  tasksEndpointPath: '/tasks',
   incidentsEndpointPath: '/incidents',
   machinesEndpointPath: '/machinery',
   projectEndpointPath: '/projects',

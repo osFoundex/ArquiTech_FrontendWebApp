@@ -18,6 +18,7 @@ import {ActivatedRoute} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatDialog} from '@angular/material/dialog';
 import { GenericDialogComponent, DialogConfig } from '../../../shared/components/generic-dialog/generic-dialog.component';
+import {WorkerTasksDialogComponent} from '../worker-tasks-dialog/worker-tasks-dialog.component';
 
 @Component({
   selector: 'app-worker-management',
@@ -54,6 +55,7 @@ export class workersManagementComponent implements OnInit, AfterViewInit {
       'role',
       'hired_date',
       'project_id',
+      'tasks',
       'actions'
     ];
 
@@ -179,5 +181,13 @@ export class workersManagementComponent implements OnInit, AfterViewInit {
     this.workerService.delete(id).subscribe( () => {
       this.dataSource.data = this.dataSource.data.filter( (material: Worker) => material.id !== id);
     })
+  }
+
+  /* Opens a dialog to view tasks assigned to a worker */
+  openViewTasksDialog(worker: Worker) {
+    this.dialog.open(WorkerTasksDialogComponent, {
+      width: '800px',
+      data: {worker}
+    });
   }
 }

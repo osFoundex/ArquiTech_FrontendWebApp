@@ -107,6 +107,7 @@
     "hired_date": "Fecha de Contratación",
     "project_id": "ID del Proyecto",
     "w_actions": "Acciones",
+    "w_tasks": "Tareas",
     "sort": {
       "name": "Ordenar por nombre",
       "role": "Ordenar por rol",
@@ -117,6 +118,37 @@
       "engineer": "Ingeniero",
       "worker": "Obrero",
       "supervisor": "Supervisor"
+    },
+    "view_tasks": "Ver",
+    "tasks": {
+      "title": "Tareas",
+      "add": "Añadir Tarea",
+      "description": "Descripción",
+      "start_date": "Fecha de Inicio",
+      "due_date": "Fecha de Vencimiento",
+      "status": "Estado",
+      "actions": "Acciones",
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "sort": {
+        "due_date": "Ordenar por fecha de vencimiento",
+        "status": "Ordenar por estado"
+      },
+      "status_options": {
+        "pending": "Pendiente",
+        "in_progress": "En progreso",
+        "done": "Terminado"
+      },
+      "form": {
+        "description_required": "La descripción es obligatoria",
+        "start_date_required": "La fecha de inicio es obligatoria",
+        "due_date_required": "La fecha de vencimiento es obligatoria",
+        "status_required": "El estado es obligatorio",
+        "cancel": "Cancelar",
+        "create": "Crear",
+        "submit": "Guardar",
+        "update": "Actualizar"
+      }
     },
     "actions": {
       "edit": "Editar trabajador",

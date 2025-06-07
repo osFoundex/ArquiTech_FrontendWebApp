@@ -108,6 +108,7 @@
     "hired_date": "Hired Date",
     "project_id": "Project ID",
     "w_actions": "Actions",
+    "w_tasks": "Tareas",
     "sort": {
       "name": "Sort by name",
       "role": "Sort by role",
@@ -118,6 +119,37 @@
       "engineer": "Engineer",
       "worker": "Worker",
       "supervisor": "Supervisor"
+    },
+    "view_tasks": "View",
+    "tasks": {
+      "title": "Assigned Tasks",
+      "add": "Add Task",
+      "description": "Description",
+      "start_date": "Start Date",
+      "due_date": "Due Date",
+      "status": "Status",
+      "actions": "Actions",
+      "edit": "Edit",
+      "delete": "Delete",
+      "sort": {
+        "due_date": "Sort by due date",
+        "status": "Sort by status"
+      },
+      "status_options": {
+        "pending": "Pending",
+        "in_progress": "In Progress",
+        "done": "Done"
+      },
+      "form": {
+        "description_required": "Description is required",
+        "start_date_required": "Start date is required",
+        "due_date_required": "Due date is required",
+        "status_required": "Status is required",
+        "cancel": "Cancel",
+        "create": "Create",
+        "submit": "Save",
+        "update": "Update"
+      }
     },
     "actions": {
       "edit": "Edit worker",
