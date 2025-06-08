@@ -18,7 +18,7 @@ import {ActivatedRoute} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatDialog} from '@angular/material/dialog';
 import { GenericDialogComponent, DialogConfig } from '../../../shared/components/generic-dialog/generic-dialog.component';
-import {WorkerTasksDialogComponent} from '../worker-tasks-dialog/worker-tasks-dialog.component';
+import {TasksDialogSupervisorComponent} from '../../../tasks/pages/tasks-dialog-supervisor/tasks-dialog-supervisor.component';
 
 @Component({
   selector: 'app-worker-management',
@@ -185,7 +185,7 @@ export class workersManagementComponent implements OnInit, AfterViewInit {
 
   /* Opens a dialog to view tasks assigned to a worker */
   openViewTasksDialog(worker: Worker) {
-    this.dialog.open(WorkerTasksDialogComponent, {
+    this.dialog.open(TasksDialogSupervisorComponent, {
       width: '800px',
       data: {worker}
     });

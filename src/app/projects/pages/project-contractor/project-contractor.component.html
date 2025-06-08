@@ -1,0 +1,22 @@
+<div class="card-wrapper">
+  <h1>{{ 'projects.title' | translate }}</h1>
+  <!-- Grid de Mat Cards -->
+  <div class="card-grid">
+    <mat-card *ngFor="let project of dataSource.data" class="project-card">
+      <mat-card-header>
+        <mat-card-title>{{ project.name }}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image [src]="project.image_url" [alt]="project.name" (error)="handleImageError($event)">
+      <mat-card-content>
+        <p><strong>{{ 'projects.budget' | translate }}:</strong> {{ project.budget | currency }}</p>
+        <p><strong>{{ 'projects.p_status' | translate }}:</strong> {{ project.status }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-button [routerLink]="['/contractor/details', project.project_id]" color="accent">
+          {{ 'projects.view_details' | translate }}
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <mat-paginator [pageSizeOptions]="[5, 10, 15]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+</div>

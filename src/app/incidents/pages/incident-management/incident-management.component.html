@@ -32,10 +32,10 @@
       <th mat-header-cell *matHeaderCellDef>{{ 'incidents.i_actions' | translate }}</th>
       <td mat-cell *matCellDef="let incident">
         <a (click)="onEditItem(incident)" href="javascript:void(0)" [attr.aria-label]="'incidents.actions.edit' | translate">
-          <mat-icon>edit</mat-icon>
+          <mat-icon class="actions-icon">edit</mat-icon>
         </a>
         <a (click)="onDeleteItem(incident)" href="javascript:void(0)" [attr.aria-label]="'incidents.actions.delete' | translate">
-          <mat-icon>delete</mat-icon>
+          <mat-icon class="actions-icon">delete</mat-icon>
         </a>
       </td>
     </ng-container>

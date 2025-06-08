@@ -229,3 +229,6 @@ mat-paginator .mat-option:hover {
   margin-left: 12px;
 }
 
+.actions-icon{
+  color: #DE7F1A !important;
+}

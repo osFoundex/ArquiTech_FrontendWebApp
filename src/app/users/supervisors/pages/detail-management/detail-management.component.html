@@ -1,0 +1,28 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened>
+    <mat-nav-list>
+      <h3>{{ 'detailsProjects.details' | translate }}</h3>
+      @for (option of options; track option.label) {
+        <a
+          mat-list-item
+          [routerLink]="['/details', project_id, option.link]"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: false }"
+        >
+          {{ option.label | translate }}
+        </a>
+      }
+      <div class="btn-back-wrapper">
+      <a mat-list-item [routerLink]="['/projects']" class="back-to-projects">
+        <mat-icon class="icon">keyboard_return</mat-icon>
+        {{ 'detailsProjects.back' | translate }}
+      </a>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

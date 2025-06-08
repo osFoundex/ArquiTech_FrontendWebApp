@@ -227,3 +227,7 @@ mat-paginator .mat-option:hover {
   justify-content: flex-start;
   margin-bottom: 20px;
 }
+
+.actions-icon{
+  color: #DE7F1A !important;
+}
