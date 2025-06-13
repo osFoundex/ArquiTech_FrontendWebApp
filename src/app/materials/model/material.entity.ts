@@ -5,6 +5,7 @@ export class Material {
   name: string;
 
   quantity: number;
+  quantity_exit?: number;
   stock?: number;
   unit_price: number;
   unit: string;
@@ -16,18 +17,21 @@ export class Material {
   payment_method: string;
   status: string;
 
-  mat_type?: string;
+  entry_type: string;
+  exit_type?: string;
 
   constructor
-  (material:{id?: number, material_id?: number, project_id?: number, name?: string,quantity?: number,
+  (material:{id?: number, material_id?: number, project_id?: number, name?: string,quantity?: number, quantity_exit?: number,
     stock?: number, unit_price?: number, unit?: string, provider?: string, provider_ruc?: string,
-    date?: string, exit_date?:string, receipt_number?: string, payment_method?: string, status?: string, mat_type?: string}) {
+    date?: string, exit_date?:string, receipt_number?: string, payment_method?: string, status?: string,
+    entry_type?: string, exit_type?: string,}) {
     this.id = material.id || 0;
     this.material_id = material.material_id || 0;
     this.project_id = material.project_id || 0;
     this.name = material.name || "";
 
     this.quantity = material.quantity || 0;
+    this.quantity_exit = material.quantity_exit || 0;
     this.stock = material.stock || 0;
     this.unit_price = material.unit_price||0;
     this.unit = material.unit||"";
@@ -38,7 +42,8 @@ export class Material {
     this.receipt_number = material.receipt_number || "";
     this.payment_method = material.payment_method|| "";
     this.status = material.status|| "";
-    this.mat_type = material.mat_type || "Entrada"; // Tipo de material, por defecto "Entrada"
+    this.entry_type = material.entry_type || "Entrada";
+    this.exit_type = material.exit_type || "Salida";
 
   }
 }

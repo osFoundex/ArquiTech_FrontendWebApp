@@ -1,9 +1,9 @@
 export const environment = {
   production: false,
   serverBaseUrl: 'http://localhost:3000/api/v1',
-  entryDateMaterialsEndpointPath: '/entry-date',
-  exitDateMaterialsEndpointPath: '/exit-date',
+  materialsEndpointPath: '/materials',
   workersEndpointPath: '/workers',
+  tasksEndpointPath: '/tasks',
   incidentsEndpointPath: '/incidents',
   machinesEndpointPath: '/machinery',
   projectEndpointPath: '/projects',

@@ -1,1 +1,38 @@
-<p>materials-contractor works!</p>
+<div class="table-wrapper" *ngIf="!router.url.endsWith('entry-date') && !router.url.endsWith('exit-date')">
+  <h1>{{ 'materials.title' | translate }}</h1>
+
+  <!-- Data Table -->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+    <ng-container matColumnDef="material_id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="{{ 'materials.sort.material_id' | translate }}">{{ 'materials.material_id' | translate }}</th>
+      <td mat-cell *matCellDef="let material"> {{ material.material_id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="{{ 'materials.sort.name' | translate }}">{{ 'materials.name' | translate }}</th>
+      <td mat-cell *matCellDef="let material"> {{ material.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="stock">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="{{ 'materials.sort.stock' | translate }}">{{ 'materials.stock' | translate }}</th>
+      <td mat-cell *matCellDef="let material"> {{ material.stock }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="unit_price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="{{ 'materials.sort.unit_price' | translate }}">{{ 'materials.unit_price' | translate }}</th>
+      <td mat-cell *matCellDef="let material"> {{ material.unit_price }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="unit">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="{{ 'materials.sort.unit' | translate }}">{{ 'materials.unit' | translate }}</th>
+      <td mat-cell *matCellDef="let material"> {{ material.unit }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToString"></tr>
+    <tr *matRowDef="let row; columns: columnsToString;"
+        [ngClass]="{ 'editable-row': materialData && materialData.id === row.id}" mat-row></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 15]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+</div>
+
+<router-outlet></router-outlet>

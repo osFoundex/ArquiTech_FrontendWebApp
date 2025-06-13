@@ -10,7 +10,7 @@ import {
   MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef, MatTable,
   MatTableDataSource
 } from '@angular/material/table';
-import {EntryDateMaterialService} from '../../services/entryDateMaterials/entry-date-material.service';
+import {MaterialService} from '../../services/material.service';
 import {MatDialog} from '@angular/material/dialog';
 import {ActivatedRoute, RouterLink} from '@angular/router';
 import {DialogConfig, GenericDialogComponent} from '../../../shared/components/generic-dialog/generic-dialog.component';
@@ -18,7 +18,6 @@ import {MatButton} from '@angular/material/button';
 import {NgClass} from '@angular/common';
 import {TranslatePipe} from '@ngx-translate/core';
 import {MatIcon} from '@angular/material/icon';
-import {ExitDateMaterialService} from '../../services/exitDateMaterials/exit-date-material.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
@@ -75,8 +74,7 @@ export class EntryDateComponent implements OnInit, AfterViewInit {
   id = 0;
   projectId=0;
 
-  private entryMaterialService: EntryDateMaterialService = inject(EntryDateMaterialService);
-  private exitMaterialService: ExitDateMaterialService = inject(ExitDateMaterialService);
+  private materialService: MaterialService = inject(MaterialService);
   private snackBar: MatSnackBar = inject(MatSnackBar);
   private dialog: MatDialog = inject(MatDialog);
   route: ActivatedRoute=inject(ActivatedRoute);
@@ -147,18 +145,20 @@ export class EntryDateComponent implements OnInit, AfterViewInit {
         return; // Si no hay resultado, salir
       }
 
-      this.entryMaterialService.getAll().subscribe((materials: Material[]) => {
+      this.materialService.getAll().subscribe((materials: Material[]) => {
         const maxMaterialId = materials.length > 0
           ? Math.max(...materials.map(m => m.material_id || 0))
           : 0;
         const newMaterialId = maxMaterialId + 1;
 
-        this.entryMaterialService.create({
+        this.materialService.create({
           id: this.id,
           material_id: newMaterialId,
           project_id: this.projectId,
           ...r,
-          mat_type: 'Entry'
+          quantity_exit: 0,  // Asignamos 0 a quantity_exit si no es especificado
+          entry_type: 'Entry',
+          exit_type: null   // Asignamos null a exit_type si no es especificado
         }).subscribe({
           next: response => {
             this.dataSource.data = [...this.dataSource.data, response];
@@ -222,14 +222,14 @@ export class EntryDateComponent implements OnInit, AfterViewInit {
       const updatedMaterialEntry = {
         ...item,
         ...r,
-        mat_type: 'Entry'
+        entry_type: 'Entry',
       };
 
       if (typeof item.material_id === 'number') {
         this.updateAllByMaterialId(item.material_id, r);
       }
 
-      this.entryMaterialService.update(item.id, updatedMaterialEntry).subscribe({
+      this.materialService.update(item.id, updatedMaterialEntry).subscribe({
         next: response => {
           const index = this.dataSource.data.findIndex((mat: Material) => mat.id === response.id);
           this.dataSource.data[index] = response;
@@ -244,22 +244,14 @@ export class EntryDateComponent implements OnInit, AfterViewInit {
 
   private updateAllByMaterialId(material_id: number, updatedFields: Partial<Material>) {
     // Actualiza en la tabla de entradas
-    this.entryMaterialService.getAll().subscribe((entryMaterials: Material[]) => {
+    this.materialService.getAll().subscribe((entryMaterials: Material[]) => {
       entryMaterials
         .filter(m => m.material_id === material_id)
         .forEach(m => {
-          this.entryMaterialService.update(m.id, { ...m, ...updatedFields }).subscribe();
+          this.materialService.update(m.id, { ...m, ...updatedFields }).subscribe();
         });
     });
 
-    // Actualiza en la tabla de salidas
-    this.exitMaterialService.getAll().subscribe((exitMaterials: Material[]) => {
-      exitMaterials
-        .filter(m => m.material_id === material_id)
-        .forEach(m => {
-          this.exitMaterialService.update(m.id, { ...m, ...updatedFields }).subscribe();
-        });
-    });
   }
 
   protected onDeleteItem(item: Material) {
@@ -306,7 +298,7 @@ export class EntryDateComponent implements OnInit, AfterViewInit {
 
   protected moveToExit(item: Material, quantityToMove: number, exitDate: string) {
 
-    this.exitMaterialService.getAll().subscribe({
+    this.materialService.getAll().subscribe({
       next: (allExits: Material[]) => {
 
         const relatedExits = allExits.filter(exit =>
@@ -315,7 +307,7 @@ export class EntryDateComponent implements OnInit, AfterViewInit {
         );
 
 
-        const totalMoved = relatedExits.reduce((sum, exit) => sum + Number(exit.quantity), 0);
+        const totalMoved = relatedExits.reduce((sum, exit) => sum + Number(exit.quantity_exit), 0);
         const newTotal = Number(totalMoved) + Number(quantityToMove);
 
         console.log('Total salidas actuales para este material:', totalMoved);
@@ -344,25 +336,25 @@ export class EntryDateComponent implements OnInit, AfterViewInit {
           return;
         }
 
-
+        // Aquí actualizamos el material existente
         const { stock, ...rest } = item;
 
-        const newExitMaterial: Material = {
+        const updateMaterialExit: Material = {
           ...rest,
-          id: 0,
-          quantity: quantityToMove,
+          id: rest.id,
+          quantity_exit: quantityToMove,
           exit_date: exitDate,
           project_id: this.projectId,
-          mat_type: 'Exit',
+          exit_type: 'Exit',
           material_id: item.material_id
         };
 
 
-        this.exitMaterialService.create(newExitMaterial).subscribe({
+        this.materialService.update(item.id, updateMaterialExit).subscribe({
           next: () => {
 
             if (newTotal === item.quantity) {
-              this.entryMaterialService.delete(item.id).subscribe(() => {
+              this.materialService.delete(item.id).subscribe(() => {
                 this.dataSource.data = this.dataSource.data.filter(mat => mat.id !== item.id);
               });
             }
@@ -381,14 +373,14 @@ export class EntryDateComponent implements OnInit, AfterViewInit {
 
 
   private getAllMaterials() {
-    this.entryMaterialService.getAll().subscribe((response: Array<Material>) => {
-      this.dataSource.data = response.filter(material => material.project_id===this.projectId && material.mat_type === 'Entry');
+    this.materialService.getAll().subscribe((response: Array<Material>) => {
+      this.dataSource.data = response.filter(material => material.project_id===this.projectId);
     })
   }
 
 
   private deleteMaterial(id: number) {
-    this.entryMaterialService.delete(id).subscribe( () => {
+    this.materialService.delete(id).subscribe( () => {
       this.dataSource.data = this.dataSource.data.filter( (material: Material) => material.id !== id);
     })
   }

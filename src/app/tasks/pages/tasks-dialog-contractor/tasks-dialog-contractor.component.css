@@ -1,0 +1,265 @@
+/* Contenedor de la tabla */
+.table-wrapper {
+  padding: 16px; /* Espaciado interno */
+  background-color: #fff; /* Fondo blanco */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  margin: 0 auto; /* Centrar */
+  width: 100%; /* Ancho automático para adaptarse al contenido */
+  /* Ancho fijo para uniformidad */
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+/* Título */
+.h2 {
+  font-family: 'Futura', 'Arial', sans-serif; /* Fuente Futura con fallback */
+  font-size: 1.8em; /* Tamaño reducido */
+  color: #2F2E2D; /* Gris oscuro */
+
+  display: flex;
+  justify-content: flex-start;
+  text-align: left; /* Alinear a la izquierda */
+}
+
+/* Tabla */
+mat-table {
+  width: 100%; /* Ocupa el ancho del contenedor (800px) */
+  background-color: #fff;
+  font-family: 'Futura', 'Arial', sans-serif; /* Fuente Futura */
+  border-collapse: collapse; /* Evitar espacios entre celdas */
+}
+
+/* Encabezados */
+mat-header-cell {
+  font-size: 0.85em; /* Texto más pequeño */
+  font-weight: bold;
+  color: #2F2E2D; /* Gris oscuro */
+  background-color: #F8F5F1; /* Fondo blanco cremoso */
+  padding: 8px 12px; /* Padding reducido */
+  text-transform: uppercase;
+  border-bottom: 2px solid #DE7F1A; /* Línea naranja */
+  width: 25%; /* Distribución uniforme para 4 columnas */
+  text-align: left; /* Alinear texto */
+}
+
+/* Celdas */
+mat-cell {
+  font-size: 0.8em; /* Texto más pequeño para compactar */
+  color: #2F2E2D; /* Gris oscuro */
+  padding: 8px 12px; /* Padding reducido */
+  border-bottom: 1px solid #e0e0e0; /* Línea gris clara */
+  width: 25%; /* Distribución uniforme para 4 columnas */
+  overflow: hidden; /* Evitar desbordamiento */
+  text-overflow: ellipsis; /* Mostrar "..." si el texto es largo */
+  white-space: nowrap; /* Evitar división de texto */
+}
+
+/* Filas */
+mat-row {
+  height: 36px; /* Altura de fila reducida */
+  transition: background-color 0.2s ease-in; /* Animación suave para hover */
+}
+
+/* Hover en filas */
+mat-row:hover {
+  background-color: rgba(222, 127, 26, 0.1); /* Naranja claro con opacidad */
+}
+
+/* Fila editable (si está seleccionada) */
+mat-row.editable-row {
+  background-color: rgba(222, 127, 26, 0.2); /* Naranja más visible */
+}
+
+/* Enlaces en la columna de acciones */
+mat-cell a {
+  color: #DE7F1A; /* Naranja */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease-in, transform 0.2s ease-in; /* Animación suave */
+}
+
+mat-cell a:hover {
+  color: #b36515; /* Naranja más oscuro */
+  text-decoration: underline;
+  transform: scale(1.05); /* Ligera ampliación en hover */
+}
+
+/* Paginador */
+mat-paginator {
+  background-color: #F8F5F1; /* Fondo blanco cremoso */
+  font-family: 'Futura', 'Arial', sans-serif; /* Fuente Futura */
+  padding: 8px 12px; /* Padding compacto */
+  border-radius: 8px; /* Bordes redondeados */
+  margin-top: 12px; /* Espacio reducido */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  display: flex; /* Alinear elementos */
+  justify-content: flex-end; /* Alinear a la derecha */
+  align-items: center;
+  width: 800px; /* Igual que la tabla para uniformidad */
+  margin-left: auto; /* Alinear con la tabla */
+  margin-right: auto;
+}
+
+/* Contenedor del paginador */
+mat-paginator .mat-paginator-container {
+  gap: 8px; /* Espacio entre elementos */
+}
+
+/* Texto del paginador */
+mat-paginator .mat-paginator-page-size,
+mat-paginator .mat-paginator-range-label {
+  color: #2F2E2D; /* Gris oscuro */
+  font-size: 0.8em; /* Más pequeño */
+  margin: 0 4px;
+}
+
+/* Botones del paginador */
+mat-paginator .mat-icon-button {
+  background-color: #fff; /* Fondo blanco */
+  border: 1px solid #DE7F1A; /* Borde naranja */
+  border-radius: 50%; /* Botones redondos */
+  width: 28px; /* Más pequeños */
+  height: 28px;
+  line-height: 28px;
+  margin: 0 4px;
+  transition: background-color 0.3s ease-in, color 0.3s ease-in, transform 0.3s ease-in; /* Animación suave */
+}
+
+/* Hover en botones */
+mat-paginator .mat-icon-button:hover {
+  background-color: #DE7F1A; /* Fondo naranja */
+  color: #F8F5F1; /* Texto blanco cremoso */
+  transform: scale(1.1); /* Ligera ampliación */
+}
+
+/* Botón deshabilitado */
+mat-paginator .mat-icon-button[disabled] {
+  background-color: #f0f0f0; /* Gris claro */
+  border-color: #ccc;
+  color: #999;
+  transform: none; /* Sin animación */
+}
+
+/* Selector de tamaño de página */
+mat-paginator .mat-paginator-page-size-label {
+  margin-right: 8px;
+  font-size: 0.8em;
+}
+
+/* Estilo del mat-select */
+mat-paginator .mat-select {
+  font-size: 0.8em;
+  color: #2F2E2D; /* Gris oscuro */
+  background-color: #fff; /* Fondo blanco */
+  border: none; /* Sin borde */
+  border-radius: 4px; /* Bordes redondeados */
+  padding: 4px 8px; /* Padding compacto */
+  transition: background-color 0.3s ease-in; /* Animación suave */
+}
+
+/* Hover en mat-select */
+mat-paginator .mat-select:hover {
+  background-color: rgba(222, 127, 26, 0.1); /* Naranja claro */
+}
+
+/* Quitar el borde cuadrado del contenedor del mat-select */
+mat-paginator .mat-form-field {
+  border: none; /* Sin borde */
+  margin: 0;
+  padding: 0;
+}
+
+/* Quitar el subrayado del mat-form-field */
+mat-paginator .mat-form-field-underline {
+  display: none; /* Eliminar la línea inferior */
+}
+
+/* Estilo del valor seleccionado en mat-select */
+mat-paginator .mat-select-value {
+  color: #2F2E2D; /* Gris oscuro */
+  font-family: 'Futura', 'Arial', sans-serif;
+}
+
+/* Opciones del desplegable */
+mat-paginator .mat-option {
+  font-family: 'Futura', 'Arial', sans-serif;
+  font-size: 0.8em;
+  color: #2F2E2D;
+}
+
+/* Hover en opciones */
+mat-paginator .mat-option:hover {
+  background-color: rgba(222, 127, 26, 0.2); /* Naranja claro */
+}
+
+/* Efecto de elevación en la tabla */
+.mat-elevation-z8 {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+}
+
+
+
+.add-button {
+  background-color: #DE7F1A !important;
+  color: white !important;
+  font-size: 0.85em;
+  border-radius: 6px;
+  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-button:hover {
+  transform: scale(1.02);
+}
+
+.add-button mat-icon {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.add-button .icon{
+  color: white !important;
+}
+
+.btn-add-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.close-button {
+  background-color: #DE7F1A !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-flex;
+  justify-content: flex-end;
+}
+.close-button:hover {
+  transform: scale(1.02);
+}
+
+.close-button .icon {
+  color: white !important;
+}
+
+.btn-close-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.actions-icon{
+  color: #DE7F1A !important;
+}

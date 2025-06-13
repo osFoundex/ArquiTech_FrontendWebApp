@@ -1,1 +1,42 @@
-<p>tasks-dialog-contractor works!</p>
+<div class="table-wrapper">
+
+  <div class="header-wrapper">
+    <h2>{{ 'workers.tasks.title' | translate }}</h2>
+
+    <div class="btn-close-wrapper">
+      <button mat-icon-button (click)="close()" class="close-button">
+        <mat-icon class="icon">close</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="{{ 'workers.tasks.sort.description' | translate }}">
+        {{ 'workers.tasks.description' | translate }}
+      </th>
+      <td mat-cell *matCellDef="let task"> {{ task.description }}</td>
+    </ng-container>
+    <ng-container matColumnDef="start_date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="{{ 'workers.tasks.sort.start_date' | translate }}">
+        {{ 'workers.tasks.start_date' | translate }}
+      </th>
+      <td mat-cell *matCellDef="let task"> {{ task.start_date }}</td>
+    </ng-container>
+    <ng-container matColumnDef="due_date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="{{ 'workers.tasks.sort.due_date' | translate }}">
+        {{ 'workers.tasks.due_date' | translate }}
+      </th>
+      <td mat-cell *matCellDef="let task"> {{ task.due_date }}</td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="{{ 'workers.tasks.sort.status' | translate }}">
+        {{ 'workers.tasks.status' | translate }}
+      </th>
+      <td mat-cell *matCellDef="let task"> {{ task.status }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToString"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnsToString;"></tr>
+  </table>
+</div>

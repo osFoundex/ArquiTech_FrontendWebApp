@@ -40,6 +40,7 @@
     "material_id": "Código",
     "name": "Nombre",
     "quantity": "Cantidad",
+    "quantity_exit": "Cantidad de Salida",
     "stock": "Existencia",
     "unit_price": "Precio Unitario",
     "unit": "Unidad",

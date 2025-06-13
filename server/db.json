@@ -295,7 +295,7 @@
       "status": "Pending"
     }
   ],
-  "entry-date": [
+  "materials": [
     {
       "id": 1,
       "material_id": 1,
@@ -310,7 +310,9 @@
       "receipt_number": "REC-001",
       "payment_method": "Transfer",
       "status": "Received",
-      "mat_type": "Entry"
+      "quantity_exit": 0,
+      "entry_type": "Entry",
+      "exit_type": null
     },
     {
       "id": 2,
@@ -326,13 +328,15 @@
       "receipt_number": "REC-002",
       "payment_method": "Cash",
       "status": "Received",
-      "mat_type": "Entry"
+      "quantity_exit": 0,
+      "entry_type": "Entry",
+      "exit_type": null
     },
     {
       "id": 3,
       "material_id": 3,
       "project_id": 3,
-      "name": "acero",
+      "name": "Acero",
       "quantity": 1000,
       "unit_price": 5.2,
       "unit": "kg",
@@ -342,7 +346,10 @@
       "receipt_number": "REC-003",
       "payment_method": "Transfer",
       "status": "Received",
-      "mat_type": "Entry"
+      "quantity_exit": "200",
+      "entry_type": "Entry",
+      "exit_type": "Exit",
+      "exit_date": "2025-11-01"
     },
     {
       "id": 4,
@@ -358,7 +365,9 @@
       "receipt_number": "REC-004",
       "payment_method": "Transfer",
       "status": "Received",
-      "mat_type": "Entry"
+      "quantity_exit": 0,
+      "entry_type": "Entry",
+      "exit_type": null
     },
     {
       "id": 5,
@@ -374,7 +383,9 @@
       "receipt_number": "REC-005",
       "payment_method": "Cash",
       "status": "Received",
-      "mat_type": "Entry"
+      "quantity_exit": 0,
+      "entry_type": "Entry",
+      "exit_type": null
     },
     {
       "id": 6,
@@ -390,7 +401,9 @@
       "receipt_number": "REC-006",
       "payment_method": "Transfer",
       "status": "Received",
-      "mat_type": "Entry"
+      "quantity_exit": 0,
+      "entry_type": "Entry",
+      "exit_type": null
     },
     {
       "id": 7,
@@ -406,7 +419,9 @@
       "receipt_number": "REC-007",
       "payment_method": "Cash",
       "status": "Received",
-      "mat_type": "Entry"
+      "quantity_exit": 0,
+      "entry_type": "Entry",
+      "exit_type": null
     },
     {
       "id": 8,
@@ -422,7 +437,9 @@
       "receipt_number": "REC-008",
       "payment_method": "Transfer",
       "status": "Received",
-      "mat_type": "Entry"
+      "quantity_exit": 0,
+      "entry_type": "Entry",
+      "exit_type": null
     },
     {
       "id": 9,
@@ -438,7 +455,9 @@
       "receipt_number": "REC-009",
       "payment_method": "Cash",
       "status": "Received",
-      "mat_type": "Entry"
+      "quantity_exit": 0,
+      "entry_type": "Entry",
+      "exit_type": null
     },
     {
       "id": 10,
@@ -454,7 +473,9 @@
       "receipt_number": "REC-119",
       "payment_method": "Transfer",
       "status": "Received",
-      "mat_type": "Entry"
+      "quantity_exit": 0,
+      "entry_type": "Entry",
+      "exit_type": null
     },
     {
       "id": 11,
@@ -470,7 +491,9 @@
       "receipt_number": "REC-011",
       "payment_method": "Cash",
       "status": "Received",
-      "mat_type": "Entry"
+      "quantity_exit": 0,
+      "entry_type": "Entry",
+      "exit_type": null
     },
     {
       "id": 12,
@@ -486,7 +509,9 @@
       "receipt_number": "REC-012",
       "payment_method": "Transfer",
       "status": "Received",
-      "mat_type": "Entry"
+      "quantity_exit": 0,
+      "entry_type": "Entry",
+      "exit_type": null
     },
     {
       "id": 13,
@@ -502,8 +527,9 @@
       "receipt_number": "REC-554",
       "payment_method": "Transfer",
       "status": "Received",
-      "mat_type": "Entry",
-      "exit_date": "2026-12-24"
+      "quantity_exit": 0,
+      "entry_type": "Entry",
+      "exit_type": null
     },
     {
       "id": 14,
@@ -519,7 +545,9 @@
       "receipt_number": "REC-233",
       "payment_method": "Cash",
       "status": "Received",
-      "mat_type": "Entry"
+      "quantity_exit": 0,
+      "entry_type": "Entry",
+      "exit_type": null
     },
     {
       "id": 15,
@@ -535,11 +563,13 @@
       "receipt_number": "REC-543",
       "payment_method": "Cash",
       "status": "Received",
-      "mat_type": "Entry",
-      "exit_date": "2026-12-12"
+      "quantity_exit": 0,
+      "entry_type": "Entry",
+      "exit_type": null
     },
     {
       "id": 16,
+      "material_id": 16,
       "project_id": 4,
       "name": "Zapatos",
       "quantity": "200",
@@ -551,8 +581,9 @@
       "receipt_number": "REC-444",
       "payment_method": "Cash",
       "status": "Received",
-      "mat_type": "Entry",
-      "material_id": 16
+      "quantity_exit": 0,
+      "entry_type": "Entry",
+      "exit_type": null
     },
     {
       "id": 17,
@@ -568,162 +599,27 @@
       "receipt_number": "REC-555",
       "payment_method": "Cash",
       "status": "Received",
-      "mat_type": "Entry"
-    }
-  ],
-  "exit-date": [
-    {
-      "id": 1,
-      "material_id": 14,
-      "project_id": 4,
-      "name": "Cajas",
-      "quantity": "300",
-      "unit_price": "10",
-      "unit": "unidad",
-      "provider": "Cajaforte",
-      "provider_ruc": "12223333448",
-      "date": "2023-01-01",
-      "receipt_number": "REC-233",
-      "payment_method": "Cash",
-      "status": "Received",
-      "mat_type": "Exit",
-      "exit_date": "2024-12-12"
+      "quantity_exit": 0,
+      "entry_type": "Entry",
+      "exit_type": null
     },
     {
-      "id": 5,
-      "project_id": 4,
-      "name": "Zapatos",
-      "quantity": "20",
-      "unit_price": "20",
-      "unit": "unidad",
-      "provider": "Zapatex",
-      "provider_ruc": "11224455667",
-      "date": "2023-11-11",
-      "receipt_number": "REC-444",
-      "payment_method": "Cash",
-      "status": "Received",
-      "mat_type": "Exit",
-      "material_id": 16,
-      "exit_date": "2025-12-12"
-    },
-    {
-      "id": 6,
-      "material_id": 13,
-      "project_id": 4,
-      "name": "Reflectores",
-      "quantity": "100",
-      "unit_price": "50",
-      "unit": "unidades",
-      "provider": "Camison",
-      "provider_ruc": "10102020302",
-      "date": "2024-10-10",
-      "receipt_number": "REC-554",
-      "payment_method": "Transfer",
-      "status": "Received",
-      "mat_type": "Exit",
-      "exit_date": "2025-12-31"
-    },
-    {
-      "id": 7,
-      "material_id": 15,
-      "project_id": 4,
-      "name": "Botas",
-      "quantity": "100",
-      "unit_price": "80",
-      "unit": "unidades",
-      "provider": "Proper",
-      "provider_ruc": "11998877698",
-      "date": "2024-08-10",
-      "receipt_number": "REC-543",
-      "payment_method": "Cash",
-      "status": "Received",
-      "mat_type": "Exit",
-      "exit_date": "2025-11-28"
-    },
-    {
-      "id": 8,
-      "material_id": 2,
-      "project_id": 2,
-      "name": "Madera",
-      "quantity": "100",
-      "unit_price": 15,
-      "unit": "m3",
-      "provider": "Maderera Sur",
-      "provider_ruc": "20567890123",
-      "date": "2025-06-04",
-      "receipt_number": "REC-002",
-      "payment_method": "Cash",
-      "status": "Received",
-      "mat_type": "Exit",
-      "exit_date": "2026-12-12"
-    },
-    {
-      "id": 9,
-      "material_id": 4,
-      "project_id": 1,
-      "name": "Ladrillos",
-      "quantity": "5000",
-      "unit_price": 0.5,
-      "unit": "unidad",
-      "provider": "Ladrillera Este",
-      "provider_ruc": "20789012345",
-      "date": "2025-05-04",
-      "receipt_number": "REC-004",
-      "payment_method": "Transfer",
-      "status": "Received",
-      "mat_type": "Exit",
-      "exit_date": "2025-02-12"
-    },
-    {
-      "id": 10,
-      "material_id": 1,
-      "project_id": 1,
-      "name": "Cemento",
-      "quantity": "200",
-      "unit_price": 25.5,
-      "unit": "kg",
-      "provider": "ConstruMax",
-      "provider_ruc": "20456789012",
-      "date": "2025-05-03",
-      "receipt_number": "REC-001",
-      "payment_method": "Transfer",
-      "status": "Received",
-      "mat_type": "Exit",
-      "exit_date": "2025-10-31"
-    },
-    {
-      "id": 11,
-      "material_id": 17,
-      "project_id": 4,
-      "name": "Botellas",
-      "quantity": "270",
-      "unit_price": "5",
-      "unit": "unidad",
-      "provider": "Boteixm",
-      "provider_ruc": "10223322787",
-      "date": "2025-07-12",
-      "receipt_number": "REC-555",
-      "payment_method": "Cash",
-      "status": "Received",
-      "mat_type": "Exit",
-      "exit_date": "2025-10-29"
-    },
-    {
-      "id": 12,
-      "material_id": 3,
+      "id": 18,
+      "material_id": 18,
       "project_id": 3,
-      "name": "acero",
-      "quantity": "500",
-      "unit_price": 5.2,
-      "unit": "kg",
-      "provider": "Aceros Norte",
-      "provider_ruc": "20678901234",
-      "date": "2025-04-17",
-      "receipt_number": "REC-003",
-      "payment_method": "Transfer",
+      "name": "laptops",
+      "quantity": "300",
+      "unit_price": "1500",
+      "unit": "unidad",
+      "provider": "Matrrium",
+      "provider_ruc": "3399448815",
+      "date": "2024-09-12",
+      "receipt_number": "REC-228",
+      "payment_method": "Cash",
       "status": "Received",
-      "mat_type": "Exit",
-      "exit_date": "2026-12-12"
+      "quantity_exit": 0,
+      "entry_type": "Entry",
+      "exit_type": null
     }
   ],
   "machinery": [

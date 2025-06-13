@@ -40,6 +40,7 @@
     "material_id": "Code",
     "name": "Name",
     "quantity": "Quantity",
+    "quantity_exit": "Quantity Exit",
     "stock": "Stock",
     "unit_price": "Unit Price",
     "unit": "Unit",
