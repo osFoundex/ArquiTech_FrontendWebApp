@@ -83,7 +83,11 @@ export class TasksDialogSupervisorComponent implements OnInit, AfterViewInit {
         { name: 'description', labelKey: 'workers.tasks.description', type: 'text', required: true },
         { name: 'start_date', labelKey: 'workers.tasks.start_date', type: 'date', required: true },
         { name: 'due_date', labelKey: 'workers.tasks.due_date', type: 'date', required: true },
-        { name: 'status', labelKey: 'workers.tasks.status', type: 'select', required: true, options: [
+        { name: 'status',
+          labelKey: 'workers.tasks.status',
+          type: 'select',
+          required: true,
+          options: [
             { value: 'pending', label: 'workers.tasks.status_options.pending' },
             { value: 'in_progress', label: 'workers.tasks.status_options.in_progress' },
             { value: 'done', label: 'workers.tasks.status_options.done' }
@@ -92,7 +96,7 @@ export class TasksDialogSupervisorComponent implements OnInit, AfterViewInit {
     };
 
     const dialogRef = this.dialog.open(GenericDialogComponent, {
-      width: '100%',
+      width: '800px',
       data: config
     });
 

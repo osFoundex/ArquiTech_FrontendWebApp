@@ -36,7 +36,7 @@
       <td mat-cell *matCellDef="let task"> {{ task.status }}</td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="columnsToString"></tr>
+    <tr mat-header-row class="header-table" *matHeaderRowDef="columnsToString"></tr>
     <tr mat-row *matRowDef="let row; columns: columnsToString;"></tr>
   </table>
 </div>

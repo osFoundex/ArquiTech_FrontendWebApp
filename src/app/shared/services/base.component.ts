@@ -6,9 +6,9 @@ import {catchError, Observable, retry, throwError} from 'rxjs';
 export abstract class BaseService<T> {
   protected httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
 
-  protected serverBaseUrl: string = `${environment.serverBaseUrl}`;
+  protected serverBaseUrl: string = `${environment.serverBaseUrl}`; // Base URL for the server API
 
-  protected resourceEndpoint: string = '/resources';
+  protected resourceEndpoint: string = '/resources'; // Default endpoint, should be overridden in derived classes
 
   protected http: HttpClient = inject(HttpClient);
 

@@ -184,6 +184,14 @@ mat-paginator .mat-option:hover {
 /* Efecto de elevación en la tabla */
 .mat-elevation-z8 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+  border-radius: 8px;
+  overflow: hidden; /* Bordes redondeados */
+}
+
+.header-table  {
+  font-weight: bold !important; /* Negrita para encabezados */
+  color: white !important; /* Gris oscuro */
+  background-color: #DE7F1A;
 }
 
 

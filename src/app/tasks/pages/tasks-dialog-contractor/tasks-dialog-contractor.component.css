@@ -5,7 +5,7 @@
   border-radius: 8px; /* Bordes redondeados */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
   margin: 0 auto; /* Centrar */
-  width: 100%; /* Ancho automático para adaptarse al contenido */
+  width: fit-content; /* Ancho automático para adaptarse al contenido */
   /* Ancho fijo para uniformidad */
 }
 
@@ -201,10 +201,15 @@ mat-paginator .mat-option:hover {
 /* Efecto de elevación en la tabla */
 .mat-elevation-z8 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+  border-radius: 8px;
+  overflow: hidden; /* Bordes redondeados */
 }
 
-
-
+.header-table  {
+  font-weight: bold !important; /* Negrita para encabezados */
+  color: white !important; /* Gris oscuro */
+  background-color: #DE7F1A;
+}
 .add-button {
   background-color: #DE7F1A !important;
   color: white !important;

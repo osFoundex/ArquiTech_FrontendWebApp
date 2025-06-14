@@ -1,0 +1,85 @@
+.table-wrapper {
+  padding: 16px; /* Espaciado interno */
+  background-color: #fff; /* Fondo blanco */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  margin: 0 auto; /* Centrar */
+  width: 800px; /* Ancho fijo para uniformidad */
+}
+
+.table-wrapper h1 {
+  font-family: 'Futura', 'Arial', sans-serif; /* Fuente Futura con fallback */
+  font-size: 1.8em; /* Tamaño reducido */
+  color: #2F2E2D; /* Gris oscuro */
+  margin-bottom: 16px;
+  text-align: left; /* Alinear a la izquierda */
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+h2 {
+  color: #2F2E2D;
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.downland-button {
+  background-color: #DE7F1A !important;
+  color: white !important;
+  font-size: 0.85em;
+  border-radius: 6px;
+  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  text-transform: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.downland-button:hover {
+  transform: scale(1.02);
+}
+
+.downland-button mat-icon {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.downland-button .icon{
+  color: white !important;
+}
+
+.mat-elevation-z8  {
+  width: fit-content; /* Ocupa el ancho del contenedor (800px) */
+  background-color: #fff;
+  font-family: 'Futura', 'Arial', sans-serif; /* Fuente Futura */
+  border-collapse: collapse; /* Evitar espacios entre celdas */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-width: 2px;
+  border-color: white;
+  column-gap: 2px; /* Espacio entre columnas */
+  border-radius: 8px;
+  overflow: hidden; /* Bordes redondeados */
+}
+
+.header-table  {
+  font-weight: bold !important; /* Negrita para encabezados */
+  color: white !important; /* Gris oscuro */
+  background-color: #DE7F1A;
+}
+
+h3{
+  color: #DE7F1A; /* Gris oscuro */
+}
+
+mat-column {
+  border-right: 1px solid white; /* Línea divisoria entre columnas */
+}

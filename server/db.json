@@ -1,6 +1,7 @@
 {
   "users": [
     {
+      "id": 1,
       "user_id": 1,
       "name": "Juan Carlos Zegarra",
       "email": "juan.zegarra@constructora.com",
@@ -9,6 +10,7 @@
       "profile_picture": "https://example.com/profiles/juan_zegarra.jpg"
     },
     {
+      "id": 2,
       "user_id": 2,
       "name": "Verónica Delgado",
       "email": "veronica.delgado@constructora.com",
@@ -17,6 +19,7 @@
       "profile_picture": "https://example.com/profiles/veronica_delgado.jpg"
     },
     {
+      "id": 3,
       "user_id": 3,
       "name": "Pedro Gómez",
       "email": "pedro.gomez@client.com",
@@ -25,6 +28,7 @@
       "profile_picture": "https://example.com/profiles/pedro_gomez.jpg"
     },
     {
+      "id": 4,
       "user_id": 4,
       "name": "Ana López",
       "email": "ana.lopez@client.com",
@@ -33,6 +37,7 @@
       "profile_picture": "https://example.com/profiles/ana_lopez.jpg"
     },
     {
+      "id": 5,
       "user_id": 5,
       "name": "Marcos Rivera",
       "email": "marcos.rivera@client.com",
@@ -43,6 +48,7 @@
   ],
   "projects": [
     {
+      "id": 1,
       "project_id": 1,
       "name": "Construcción Edificio A",
       "start_date": "2025-05-01",
@@ -54,6 +60,7 @@
       "image_url": "https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg"
     },
     {
+      "id": 2,
       "project_id": 2,
       "name": "Tienda B",
       "start_date": "2025-06-01",
@@ -65,6 +72,7 @@
       "image_url": "https://images.pexels.com/photos/258447/pexels-photo-258447.jpeg"
     },
     {
+      "id": 3,
       "project_id": 3,
       "name": "Casa C",
       "start_date": "2025-04-15",
@@ -76,6 +84,7 @@
       "image_url": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg"
     },
     {
+      "id": 4,
       "project_id": 4,
       "name": "Torre Residencial D",
       "start_date": "2025-07-01",
@@ -87,6 +96,7 @@
       "image_url": "https://images.pexels.com/photos/221506/pexels-photo-221506.jpeg"
     },
     {
+      "id": 5,
       "project_id": 5,
       "name": "Supermercado E",
       "start_date": "2025-08-01",
@@ -98,6 +108,7 @@
       "image_url": "https://images.pexels.com/photos/221506/pexels-photo-221506.jpeg"
     },
     {
+      "id": 6,
       "project_id": 6,
       "name": "Carretera F",
       "start_date": "2025-09-01",
@@ -281,9 +292,9 @@
       "id_project": 5,
       "id_worker": 11,
       "description": "Pavimentar el suelo del supermercado E",
-      "start_date": "2025-08-01",
-      "due_date": "2025-09-01",
-      "status": "Pending"
+      "start_date": "2025-06-11",
+      "due_date": "2025-06-12",
+      "status": "done"
     },
     {
       "id": 7,

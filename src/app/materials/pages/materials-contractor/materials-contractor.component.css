@@ -5,7 +5,7 @@
   border-radius: 8px; /* Bordes redondeados */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
   margin: 0 auto; /* Centrar */
-  width: 800px; /* Ancho completo */
+  width: fit-content; /* Ancho completo */
 }
 
 .table-wrapper h1 {
@@ -25,6 +25,11 @@ mat-table {
   border-collapse: collapse; /* Evitar espacios entre celdas */
 }
 
+.header-table  {
+  font-weight: bold !important; /* Negrita para encabezados */
+  color: white !important; /* Gris oscuro */
+  background-color: #DE7F1A;
+}
 /* Encabezados */
 mat-header-cell {
   font-size: 0.85em; /* Texto más pequeño */
@@ -184,8 +189,9 @@ mat-paginator .mat-option:hover {
 /* Efecto de elevación en la tabla */
 .mat-elevation-z8 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+  overflow: hidden;
+  border-radius: 8px;
 }
-
 
 .btns-wrapper {
   display: flex;

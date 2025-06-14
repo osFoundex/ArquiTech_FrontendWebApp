@@ -45,7 +45,7 @@
         </a>
       </td>
     </ng-container>
-    <tr mat-header-row *matHeaderRowDef="columnsToString"></tr>
+    <tr mat-header-row class="header-table" *matHeaderRowDef="columnsToString"></tr>
     <tr *matRowDef="let row; columns: columnsToString;"
         [ngClass]="{ 'editable-row': workerData && workerData.id === row.id}" mat-row></tr>
   </table>

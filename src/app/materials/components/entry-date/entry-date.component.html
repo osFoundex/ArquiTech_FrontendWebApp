@@ -76,18 +76,18 @@
       <th mat-header-cell *matHeaderCellDef>{{ 'materials.m_actions' | translate }}</th>
       <td mat-cell *matCellDef="let material">
         <a (click)="onEditItem(material)" href="javascript:void(0)">
-          <mat-icon>edit</mat-icon>
+          <mat-icon class="actions-icon">edit</mat-icon>
         </a>
         <a (click)="onDeleteItem(material)" href="javascript:void(0)">
-          <mat-icon>delete</mat-icon>
+          <mat-icon class="actions-icon">delete</mat-icon>
         </a>
         <a (click)="openMoveToExitDialog(material)" href="javascript:void(0)">
-          <mat-icon>logout</mat-icon>
+          <mat-icon class="actions-icon">logout</mat-icon>
         </a>
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="columnsToString"></tr>
+    <tr mat-header-row class="header-table" *matHeaderRowDef="columnsToString"></tr>
     <tr *matRowDef="let row; columns: columnsToString;"
         [ngClass]="{ 'editable-row': materialData && materialData.id === row.id}" mat-row></tr>
   </table>
