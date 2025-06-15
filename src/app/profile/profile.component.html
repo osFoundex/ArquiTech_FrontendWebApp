@@ -1,0 +1,60 @@
+<div class="profile-container">
+  <h2>{{ 'profile.title' | translate }}</h2>
+
+  <form [formGroup]="profileForm" (ngSubmit)="guardar()" class="profile-form">
+    <label>
+      {{ 'profile.name' | translate }}
+      <input
+        type="text"
+        formControlName="nombre"
+        [placeholder]="'profile.placeholder_name' | translate"
+      />
+    </label>
+
+    <label>
+      {{ 'profile.email' | translate }}
+      <input
+        type="email"
+        formControlName="correo"
+        [placeholder]="'profile.placeholder_email' | translate"
+      />
+    </label>
+
+    <label>
+      {{ 'profile.image' | translate }}
+      <input
+        type="text"
+        formControlName="imagen"
+        [placeholder]="'profile.placeholder_image' | translate"
+      />
+    </label>
+
+    <button type="submit">{{ 'profile.save' | translate }}</button>
+  </form>
+
+  <hr />
+
+  <h3>{{ 'profile.accessibility' | translate }}</h3>
+  <div class="settings-buttons">
+    <button type="button" (click)="toggleModoOscuro()">
+      {{ 'profile.dark_mode' | translate }}
+    </button>
+    <button type="button" (click)="toggleContraste()">
+      {{ 'profile.high_contrast' | translate }}
+    </button>
+    <button type="button" (click)="aumentarFuente()">
+      {{ 'profile.increase_font' | translate }}
+    </button>
+    <button type="button" (click)="resetearFuente()">
+      {{ 'profile.reset_font' | translate }}
+    </button>
+  </div>
+
+  <div class="volver">
+    <button type="button" (click)="volver()">
+      {{ 'profile.back' | translate }}
+    </button>
+  </div>
+
+  <p *ngIf="mensajeConfirmacion">{{ 'profile.saved_message' | translate }}</p>
+</div>

@@ -40,10 +40,8 @@
     "material_id": "Code",
     "name": "Name",
     "quantity": "Quantity",
-    "quantity_exit": "Quantity Exit",
     "stock": "Stock",
     "unit_price": "Unit Price",
-    "price": "Price",
     "unit": "Unit",
     "provider": "Provider",
     "provider_ruc": "Provider RUC",
@@ -242,19 +240,22 @@
       "update": "Update"
     }
   },
-  "reports": {
-    "title": "Reports",
-    "week_report": "Weekly Report",
-    "data_principal": "Main Data",
-    "download": "Download",
-    "project_name": "Project Name",
-    "project_id": "Project ID",
-    "supervisor_name": "Supervisor",
-    "contractor_name": "Contractor",
-    "done_tasks": "Done Tasks",
-    "entry_materials": "Entry Materials",
-    "exit_materials": "Exit Materials",
-    "incidents": "Incidents"
+  "profile": {
+    "title": "User Settings",
+    "name": "Name",
+    "email": "Email",
+    "image": "Profile Image",
+    "save": "Save Changes",
+    "accessibility": "Accessibility Preferences",
+    "dark_mode": "Dark Mode",
+    "high_contrast": "High Contrast",
+    "increase_font": "Increase Font",
+    "reset_font": "Reset Font",
+    "back": "← Back to main panel",
+    "saved_message": "✅ Data saved successfully.",
+    "placeholder_name": "Enter your name",
+    "placeholder_email": "Enter your email",
+    "placeholder_image": "Enter profile image URL"
   }
 
 }

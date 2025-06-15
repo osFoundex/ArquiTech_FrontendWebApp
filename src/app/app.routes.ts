@@ -1,3 +1,4 @@
+import { ProfileComponent } from './profile/profile.component';
 import { Routes } from '@angular/router';
 import { MaterialsManagementComponent } from './materials/pages/materials-management/materials-management.component';
 import { workersManagementComponent } from './workers/pages/worker-management/worker-management.component';
@@ -25,24 +26,25 @@ const PageNotFoundComponent = () =>
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LogInComponent },
+
   {
     path: 'projects',
     component: ProjectManagementComponent,
     canActivate: [authGuard],
-    data: { roles: ['Supervisor'] } // Restrict to Supervisor
+    data: { roles: ['Supervisor'] }
   },
   {
     path: 'details/:id',
     component: DetailManagementComponent,
     canActivate: [authGuard],
-    data: { roles: ['Supervisor'] }, // Restrict to Supervisor
+    data: { roles: ['Supervisor'] },
     children: [
       { path: '', redirectTo: 'materials', pathMatch: 'full' },
       { path: 'materials',
         component: MaterialsManagementComponent,
         children: [
-          {path:'entry-date', component: EntryDateComponent},
-          {path:'exit-date', component: ExitDateComponent}
+          { path: 'entry-date', component: EntryDateComponent },
+          { path: 'exit-date', component: ExitDateComponent }
         ]
       },
       { path: 'workers', component: workersManagementComponent },
@@ -54,7 +56,7 @@ export const routes: Routes = [
     path: 'contractor/projects',
     component: ProjectContractorComponent,
     canActivate: [authGuard],
-    data: { roles: ['Contractor'] } // Restrict to Contractor
+    data: { roles: ['Contractor'] }
   },
   {
     path: 'contractor/details/:id',
@@ -68,7 +70,12 @@ export const routes: Routes = [
       { path: 'workers', component: WorkerContractorComponent },
       { path: 'incidents', component: IncidentContractorComponent },
       { path: 'machinery', component: MachineryContractorComponent }
+
     ]
   },
+
+  { path: 'profile', component: ProfileComponent },
+
+  // 🧭 Ruta comodín final
   { path: '**', loadComponent: PageNotFoundComponent }
 ];

@@ -35,3 +35,14 @@ p, span, div, input, textarea, select {
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
 }
+
+body.modo-oscuro {
+  background-color: #121212;
+  color: #a19f9f;
+}
+
+body.alto-contraste {
+  background-color: black;
+  color: yellow;
+}
+

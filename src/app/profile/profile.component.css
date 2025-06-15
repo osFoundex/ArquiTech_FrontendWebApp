@@ -1,0 +1,95 @@
+.profile-container {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+.profile-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.profile-form input {
+  width: 100%;
+  padding: 6px;
+  margin-top: 2px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  margin: 5px 5px 5px 0;
+  padding: 8px 12px;
+  background-color: #e68316
+;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e68316
+;
+}
+
+.settings-buttons {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.volver {
+  margin-top: 20px;
+}
+
+.volver a {
+  text-decoration: none;
+  color: #e68316
+;
+  font-weight: bold;
+}
+
+.volver a:hover {
+  text-decoration: underline;
+  color: #e68316
+;
+}
+
+/* Modo oscuro */
+body.modo-oscuro {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.modo-oscuro input {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border-color: #444;
+}
+
+body.modo-oscuro button {
+  background-color: #e68316
+;
+}
+
+body.alto-contraste {
+  background-color: black;
+  color: yellow;
+}
+
+body.alto-contraste input {
+  background-color: black;
+  color: yellow;
+  border: 1px solid yellow;
+}
+
+body.alto-contraste button {
+  background-color: yellow;
+  color: black;
+  border: 1px solid black;
+}
