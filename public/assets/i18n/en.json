@@ -40,8 +40,10 @@
     "material_id": "Code",
     "name": "Name",
     "quantity": "Quantity",
+    "quantity_exit": "Quantity Exit",
     "stock": "Stock",
     "unit_price": "Unit Price",
+    "price": "Price",
     "unit": "Unit",
     "provider": "Provider",
     "provider_ruc": "Provider RUC",
@@ -239,6 +241,20 @@
       "submit": "Save",
       "update": "Update"
     }
+  },
+  "reports": {
+    "title": "Reports",
+    "week_report": "Weekly Report",
+    "data_principal": "Main Data",
+    "download": "Download",
+    "project_name": "Project Name",
+    "project_id": "Project ID",
+    "supervisor_name": "Supervisor",
+    "contractor_name": "Contractor",
+    "done_tasks": "Done Tasks",
+    "entry_materials": "Entry Materials",
+    "exit_materials": "Exit Materials",
+    "incidents": "Incidents"
   },
   "profile": {
     "title": "User Settings",

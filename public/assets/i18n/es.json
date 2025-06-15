@@ -40,6 +40,7 @@
     "material_id": "Código",
     "name": "Nombre",
     "quantity": "Cantidad",
+    "quantity_exit": "Cantidad de Salida",
     "stock": "Existencia",
     "unit_price": "Precio Unitario",
     "unit": "Unidad",
@@ -235,6 +236,20 @@
       "submit": "Guardar",
       "update": "Actualizar"
     }
+  },
+  "reports": {
+    "title": "Reportes",
+    "week_report": "Reporte Semanal",
+    "data_principal": "Datos Principales",
+    "download": "Descargar",
+    "project_name": "Nombre del proyecto",
+    "project_id": "ID del proyecto",
+    "supervisor_name": "Supervisor",
+    "contractor_name": "Contratante",
+    "done_tasks": "Tareas Completadas",
+    "entry_materials": "Materiales que entraron",
+    "exit_materials": "Materiales que salieron",
+    "incidents": "Incidentes"
   },
   "profile": {
     "title": "Configuración de Usuario",
