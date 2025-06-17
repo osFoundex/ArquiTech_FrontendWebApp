@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "user_id": 1,
+
       "name": "Juan Carlos Zegarra",
       "email": "juan.zegarra@constructora.com",
       "password": "hashed_password_123",
@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "user_id": 2,
+
       "name": "Verónica Delgado",
       "email": "veronica.delgado@constructora.com",
       "password": "hashed_password_456",
@@ -20,7 +20,7 @@
     },
     {
       "id": 3,
-      "user_id": 3,
+
       "name": "Pedro Gómez",
       "email": "pedro.gomez@client.com",
       "password": "hashed_password_789",
@@ -29,7 +29,7 @@
     },
     {
       "id": 4,
-      "user_id": 4,
+
       "name": "Ana López",
       "email": "ana.lopez@client.com",
       "password": "hashed_password_101",
@@ -38,7 +38,7 @@
     },
     {
       "id": 5,
-      "user_id": 5,
+
       "name": "Marcos Rivera",
       "email": "marcos.rivera@client.com",
       "password": "hashed_password_102",
@@ -49,7 +49,7 @@
   "projects": [
     {
       "id": 1,
-      "project_id": 1,
+
       "name": "Construcción Edificio A",
       "start_date": "2025-05-01",
       "end_date": "2025-12-01",
@@ -61,7 +61,7 @@
     },
     {
       "id": 2,
-      "project_id": 2,
+
       "name": "Tienda B",
       "start_date": "2025-06-01",
       "end_date": "2025-09-01",
@@ -73,7 +73,7 @@
     },
     {
       "id": 3,
-      "project_id": 3,
+
       "name": "Casa C",
       "start_date": "2025-04-15",
       "end_date": "2025-10-15",
@@ -85,7 +85,6 @@
     },
     {
       "id": 4,
-      "project_id": 4,
       "name": "Torre Residencial D",
       "start_date": "2025-07-01",
       "end_date": "2026-03-01",
@@ -97,7 +96,7 @@
     },
     {
       "id": 5,
-      "project_id": 5,
+
       "name": "Supermercado E",
       "start_date": "2025-08-01",
       "end_date": "2026-01-01",
@@ -109,7 +108,7 @@
     },
     {
       "id": 6,
-      "project_id": 6,
+
       "name": "Carretera F",
       "start_date": "2025-09-01",
       "end_date": "2026-06-01",
@@ -309,7 +308,7 @@
   "materials": [
     {
       "id": 1,
-      "material_id": 1,
+
       "project_id": 1,
       "name": "Cemento",
       "quantity": 500,
@@ -323,11 +322,12 @@
       "status": "Received",
       "quantity_exit": 0,
       "entry_type": "Entry",
-      "exit_type": null
+      "exit_type": null,
+      "exit_date": null
     },
     {
       "id": 2,
-      "material_id": 2,
+
       "project_id": 2,
       "name": "Madera",
       "quantity": "250",
@@ -341,11 +341,12 @@
       "status": "Received",
       "quantity_exit": 0,
       "entry_type": "Entry",
-      "exit_type": null
+      "exit_type": null,
+      "exit_date": null
     },
     {
       "id": 3,
-      "material_id": 3,
+
       "project_id": 3,
       "name": "Acero",
       "quantity": 1000,
@@ -364,7 +365,7 @@
     },
     {
       "id": 4,
-      "material_id": 4,
+
       "project_id": 1,
       "name": "Ladrillos",
       "quantity": 10000,
@@ -378,11 +379,12 @@
       "status": "Received",
       "quantity_exit": 0,
       "entry_type": "Entry",
-      "exit_type": null
+      "exit_type": null,
+      "exit_date": null
     },
     {
       "id": 5,
-      "material_id": 5,
+
       "project_id": 1,
       "name": "Pintura",
       "quantity": 50,
@@ -396,11 +398,12 @@
       "status": "Received",
       "quantity_exit": 0,
       "entry_type": "Entry",
-      "exit_type": null
+      "exit_type": null,
+      "exit_date": null
     },
     {
       "id": 6,
-      "material_id": 6,
+
       "project_id": 2,
       "name": "Vidrio",
       "quantity": 100,
@@ -414,11 +417,12 @@
       "status": "Received",
       "quantity_exit": 0,
       "entry_type": "Entry",
-      "exit_type": null
+      "exit_type": null,
+      "exit_date": null
     },
     {
       "id": 7,
-      "material_id": 7,
+
       "project_id": 2,
       "name": "Cerámica",
       "quantity": 150,
@@ -432,11 +436,12 @@
       "status": "Received",
       "quantity_exit": 0,
       "entry_type": "Entry",
-      "exit_type": null
+      "exit_type": null,
+      "exit_date": null
     },
     {
       "id": 8,
-      "material_id": 8,
+
       "project_id": 3,
       "name": "Yeso",
       "quantity": 300,
@@ -450,11 +455,12 @@
       "status": "Received",
       "quantity_exit": 0,
       "entry_type": "Entry",
-      "exit_type": null
+      "exit_type": null,
+      "exit_date": null
     },
     {
       "id": 9,
-      "material_id": 9,
+
       "project_id": 3,
       "name": "Pintura",
       "quantity": 40,
@@ -468,11 +474,12 @@
       "status": "Received",
       "quantity_exit": 0,
       "entry_type": "Entry",
-      "exit_type": null
+      "exit_type": null,
+      "exit_date": null
     },
     {
       "id": 10,
-      "material_id": 10,
+
       "project_id": 3,
       "name": "Cintas de seguridad",
       "quantity": 340,
@@ -486,11 +493,12 @@
       "status": "Received",
       "quantity_exit": 0,
       "entry_type": "Entry",
-      "exit_type": null
+      "exit_type": null,
+      "exit_date": null
     },
     {
       "id": 11,
-      "material_id": 11,
+
       "project_id": 5,
       "name": "Madera",
       "quantity": 250,
@@ -504,11 +512,12 @@
       "status": "Received",
       "quantity_exit": 0,
       "entry_type": "Entry",
-      "exit_type": null
+      "exit_type": null,
+      "exit_date": null
     },
     {
       "id": 12,
-      "material_id": 12,
+
       "project_id": 6,
       "name": "Asfalto",
       "quantity": 2000,
@@ -522,11 +531,12 @@
       "status": "Received",
       "quantity_exit": 0,
       "entry_type": "Entry",
-      "exit_type": null
+      "exit_type": null,
+      "exit_date": null
     },
     {
       "id": 13,
-      "material_id": 13,
+
       "project_id": 4,
       "name": "Reflectores",
       "quantity": "350",
@@ -540,11 +550,12 @@
       "status": "Received",
       "quantity_exit": 0,
       "entry_type": "Entry",
-      "exit_type": null
+      "exit_type": null,
+      "exit_date": null
     },
     {
       "id": 14,
-      "material_id": 14,
+
       "project_id": 4,
       "name": "Cajas",
       "quantity": "300",
@@ -558,11 +569,12 @@
       "status": "Received",
       "quantity_exit": 0,
       "entry_type": "Entry",
-      "exit_type": null
+      "exit_type": null,
+      "exit_date": null
     },
     {
       "id": 15,
-      "material_id": 15,
+
       "project_id": 4,
       "name": "Botas",
       "quantity": "240",
@@ -576,11 +588,12 @@
       "status": "Received",
       "quantity_exit": 0,
       "entry_type": "Entry",
-      "exit_type": null
+      "exit_type": null,
+      "exit_date": null
     },
     {
       "id": 16,
-      "material_id": 16,
+
       "project_id": 4,
       "name": "Zapatos",
       "quantity": "200",
@@ -594,11 +607,12 @@
       "status": "Received",
       "quantity_exit": 0,
       "entry_type": "Entry",
-      "exit_type": null
+      "exit_type": null,
+      "exit_date": null
     },
     {
       "id": 17,
-      "material_id": 17,
+
       "project_id": 4,
       "name": "Botellas",
       "quantity": "270",
@@ -612,11 +626,12 @@
       "status": "Received",
       "quantity_exit": 0,
       "entry_type": "Entry",
-      "exit_type": null
+      "exit_type": null,
+      "exit_date": null
     },
     {
       "id": 18,
-      "material_id": 18,
+
       "project_id": 3,
       "name": "laptops",
       "quantity": "300",
@@ -630,7 +645,8 @@
       "status": "Received",
       "quantity_exit": 0,
       "entry_type": "Entry",
-      "exit_type": null
+      "exit_type": null,
+      "exit_date": null
     }
   ],
   "machinery": [

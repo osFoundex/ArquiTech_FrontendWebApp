@@ -16,7 +16,8 @@
       "Active": "Activo",
       "Paused": "Pausado",
       "Completed": "Completado"
-    }
+    },
+    "contractor_id": "ID del Contratante"
   },
   "detailsProjects": {
     "details": "Detalles",

@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  serverBaseUrl: 'http://localhost:3000/api/v1',
+  serverBaseUrl: 'https://6850c9ea8612b47a2c078dc8.mockapi.io',
   usersEndpointPath: '/users',
   materialsEndpointPath: '/materials',
   workersEndpointPath: '/workers',

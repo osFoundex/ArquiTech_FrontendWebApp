@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ConfigService } from './config.service';
 import { Router } from '@angular/router';
-import {TranslatePipe} from '@ngx-translate/core'; // ✅ Importación agregada
+import {TranslatePipe} from '@ngx-translate/core'; // Importación agregada
 
 @Component({
   selector: 'app-profile',

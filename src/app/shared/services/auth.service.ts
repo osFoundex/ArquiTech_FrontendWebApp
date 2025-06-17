@@ -4,8 +4,9 @@ import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
+import {environment} from '../../../environments/environment';
 export interface User {
-  user_id: number;
+  id: number;
   name: string;
   email: string;
   password: string;
@@ -17,7 +18,7 @@ export interface User {
   providedIn: 'root'
 })
 export class AuthService {
-  private usersUrl = 'http://localhost:3000/users';
+  private usersUrl = environment.serverBaseUrl + environment.usersEndpointPath; // Adjust the URL as needed
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -46,14 +47,14 @@ export class AuthService {
   }
 
   setUser(user: User, token: string): void {
-    localStorage.setItem('user_id', user.user_id.toString());
+    localStorage.setItem('id', user.id.toString());
     localStorage.setItem('token', token);
     localStorage.setItem('user_name', user.name);
     localStorage.setItem('user_role', user.role);
   }
 
   getUserId(): number | null {
-    const userId = localStorage.getItem('user_id');
+    const userId = localStorage.getItem('id');
     return userId ? Number(userId) : null;
   }
 
@@ -66,7 +67,7 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('user_id');
+    localStorage.removeItem('id');
     localStorage.removeItem('token');
     localStorage.removeItem('user_name');
     localStorage.removeItem('user_role');

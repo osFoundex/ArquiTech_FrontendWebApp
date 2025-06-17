@@ -147,7 +147,7 @@ export class ProjectReportsContractorComponent implements OnInit, AfterViewInit 
             // Llenar la tabla con los datos
             this.projectInfoDataSource.data = [{
               project_name: this.project.name,
-              project_id: this.project.project_id,
+              project_id: this.project.id,
               supervisor_name: this.supervisor.name,
               contractor_name: this.contractor.name
             }];

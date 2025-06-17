@@ -88,7 +88,7 @@ export class ProjectManagementComponent implements OnInit, AfterViewInit {
   }
 
   protected onDeleteItem(item: Project) {
-    this.deleteProject(item.project_id);
+    this.deleteProject(item.id);
   }
 
   protected onCancelRequest() {
@@ -128,8 +128,8 @@ export class ProjectManagementComponent implements OnInit, AfterViewInit {
 
   private updateProject() {
     const projectToUpdate = this.projectData;
-    this.projectService.update(projectToUpdate.project_id, projectToUpdate).subscribe((response: Project) => {
-      const index = this.dataSource.data.findIndex((project: Project) => project.project_id === response.project_id);
+    this.projectService.update(projectToUpdate.id, projectToUpdate).subscribe((response: Project) => {
+      const index = this.dataSource.data.findIndex((project: Project) => project.id === response.id);
       this.dataSource.data[index] = response;
       this.dataSource.data = this.dataSource.data;
     });
@@ -137,7 +137,7 @@ export class ProjectManagementComponent implements OnInit, AfterViewInit {
 
   private deleteProject(id: number) {
     this.projectService.delete(id).subscribe(() => {
-      this.dataSource.data = this.dataSource.data.filter((project: Project) => project.project_id !== id);
+      this.dataSource.data = this.dataSource.data.filter((project: Project) => project.id !== id);
     });
   }
 

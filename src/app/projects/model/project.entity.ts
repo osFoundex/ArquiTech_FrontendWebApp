@@ -1,5 +1,5 @@
 export class Project {
-  project_id: number;
+  id: number;
   name: string;
   user_id: number;
   contractor_id: number | null; // Allow null for projects without contractors
@@ -16,7 +16,7 @@ export class Project {
     image_url?: string;
     status?: string;
   }) {
-    this.project_id = project.project_id || 0;
+    this.id = project.project_id || 0;
     this.name = project.name || '';
     this.user_id = project.user_id || 0;
     this.contractor_id = project.contractor_id ?? null; // Use nullish coalescing

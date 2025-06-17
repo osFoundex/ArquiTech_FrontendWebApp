@@ -12,7 +12,7 @@
         <p><strong>{{ 'projects.p_status' | translate }}:</strong> {{ project.status }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <a mat-button [routerLink]="['/contractor/details', project.project_id]" color="accent">
+        <a mat-button [routerLink]="['/contractor/details', project.id]" color="accent">
           {{ 'projects.view_details' | translate }}
         </a>
       </mat-card-actions>
