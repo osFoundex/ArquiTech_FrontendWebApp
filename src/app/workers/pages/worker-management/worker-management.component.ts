@@ -150,6 +150,7 @@ export class workersManagementComponent implements OnInit, AfterViewInit {
     dialogRef.afterClosed().subscribe(result => {
       if (!result) return;
       const updatedWorker = { ...item, ...result };
+      console.log("Actualizando worker:", updatedWorker);
       this.workerService.update(item.id, updatedWorker).subscribe({
         next: response => {
           const index = this.dataSource.data.findIndex((w: Worker) => w.id === response.id);

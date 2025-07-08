@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ConfigService } from './config.service';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 import {TranslatePipe} from '@ngx-translate/core'; // Importación agregada
 
 @Component({
@@ -20,7 +21,8 @@ export class ProfileComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private configService: ConfigService,
-    private router: Router // ✅ Inyección de Router
+    private router: Router, // ✅ Inyección de Router
+    private location: Location
   ) {
     this.profileForm = this.fb.group({
       nombre: [''],
@@ -66,6 +68,6 @@ export class ProfileComponent implements OnInit {
   }
 
   volver(): void {
-    this.router.navigate(['/login']);
+    this.location.back();
   }
 }

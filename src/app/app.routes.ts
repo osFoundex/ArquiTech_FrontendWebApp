@@ -70,7 +70,6 @@ export const routes: Routes = [
       { path: 'workers', component: WorkerContractorComponent },
       { path: 'incidents', component: IncidentContractorComponent },
       { path: 'machinery', component: MachineryContractorComponent }
-
     ]
   },
 
