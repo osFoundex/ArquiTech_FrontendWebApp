@@ -190,6 +190,7 @@ export class IncidentManagementComponent implements OnInit, AfterViewInit {
           const index = this.dataSource.data.findIndex((inc: Incident) => inc.id === response.id);
           this.dataSource.data[index] = response;
           this.dataSource.data = [...this.dataSource.data];
+          this.getAllIncidents();
         },
         error: err => {
           console.error('Error actualizando incidente:', err);
