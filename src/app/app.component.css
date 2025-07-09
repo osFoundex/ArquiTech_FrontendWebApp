@@ -1,0 +1,10 @@
+.actions-icon{
+  color: #DE7F1A !important;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Espaciado entre los botones */
+  margin-left: auto; /
+}

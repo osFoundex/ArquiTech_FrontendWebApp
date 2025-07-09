@@ -5,7 +5,9 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
-  width: 800px; /* fixed width */
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
 }
 
 /* Title */
@@ -61,6 +63,7 @@ mat-card img {
   object-fit: cover;
   border-radius: 4px;
   margin: 8px 0;
+  width: 100%;
 }
 
 /* Contenido */
@@ -106,9 +109,11 @@ mat-paginator {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: 800px;
+  width: 100%;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  box-sizing: border-box;
 }
 
 mat-paginator .mat-paginator-container {
@@ -184,4 +189,20 @@ mat-paginator .mat-option {
 
 mat-paginator .mat-option:hover {
   background-color: rgba(222, 127, 26, 0.2);
+}
+
+/* Responsive: pantallas pequeñas */
+@media (max-width: 576px) {
+  .card-wrapper h1 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  mat-card img {
+    max-height: 120px;
+  }
+
+  mat-paginator {
+    justify-content: center;
+  }
 }

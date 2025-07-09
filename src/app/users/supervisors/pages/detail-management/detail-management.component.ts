@@ -33,10 +33,10 @@ export class DetailManagementComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   project_id: number = 0;
   options = [
-    { link: 'materials', label: 'detailsProjects.materials' },
-    { link: 'workers', label: 'detailsProjects.workers' },
-    { link: 'incidents', label: 'detailsProjects.incidents' },
-    { link: 'machinery', label: 'detailsProjects.machinery' },
+    { link: 'materials', label: 'detailsProjects.materials', icon: 'archive' },
+    { link: 'workers', label: 'detailsProjects.workers', icon: 'group' },
+    { link: 'incidents', label: 'detailsProjects.incidents', icon: 'warning' },
+    { link: 'machinery', label: 'detailsProjects.machinery', icon: 'build' },
   ];
 
   constructor(private translate: TranslateService) {

@@ -2,9 +2,17 @@
   <mat-toolbar-row>
     <app-language-switcher></app-language-switcher>
 
-
     <span class="spacer"></span>
 
+    <div class="options">
+      <a *ngIf="isAuthenticated()" [routerLink]="'/profile'" mat-icon-button color="accent" aria-label="Perfil">
+        <mat-icon class="actions-icon">settings</mat-icon>
+      </a>
+
+      <a *ngIf="isAuthenticated()" (click)="logout()" color="accent">
+        <mat-icon class="actions-icon">logout</mat-icon>
+      </a>
+    </div>
 
   </mat-toolbar-row>
 </mat-toolbar>

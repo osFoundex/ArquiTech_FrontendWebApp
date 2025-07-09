@@ -185,3 +185,18 @@ mat-paginator .mat-option {
 mat-paginator .mat-option:hover {
   background-color: rgba(222, 127, 26, 0.2);
 }
+/* Responsive: pantallas pequeñas */
+@media (max-width: 576px) {
+  .card-wrapper h1 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  mat-card img {
+    max-height: 120px;
+  }
+
+  mat-paginator {
+    justify-content: center;
+  }
+}

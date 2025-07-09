@@ -3,6 +3,10 @@
   height: 100vh; /* Ocupa toda la altura de la ventana */
 }
 
+.icon{
+  color: #DE7F1A !important;
+}
+
 /* Sidenav */
 mat-sidenav {
   width: 250px; /* Ancho fijo de la sidenav */
