@@ -83,4 +83,8 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
+  getToken(): string | null {
+    const token = localStorage.getItem('token');
+    return token ? token : null;
+  }
 }
