@@ -55,7 +55,13 @@ export class ProjectContractorComponent implements OnInit, AfterViewInit {
   }
 
   protected handleImageError(event: Event): void {
-    console.error('Error al cargar la imagen:', (event.target as HTMLImageElement).src);
-    (event.target as HTMLImageElement).src = 'assets/images/fallback-construction.jpg';
+    const img = event.target as HTMLImageElement;
+    if (!img.dataset['fallbackUsed']) {
+      img.src = 'assets/images/fallback-construction.jpg';
+      img.dataset['fallbackUsed'] = 'true'; // Mark it as fallback-applied
+    } else {
+      // Do nothing to prevent infinite loop
+      console.warn('Fallback image also failed to load.');
+    }
   }
 }
