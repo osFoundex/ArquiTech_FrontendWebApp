@@ -88,9 +88,9 @@ export class TasksDialogSupervisorComponent implements OnInit, AfterViewInit {
           type: 'select',
           required: true,
           options: [
-            { value: 'pending', label: 'workers.tasks.status_options.pending' },
-            { value: 'in_progress', label: 'workers.tasks.status_options.in_progress' },
-            { value: 'done', label: 'workers.tasks.status_options.done' }
+            { value: 'PENDING', label: 'workers.tasks.status_options.pending' },
+            { value: 'IN_PROGRESS', label: 'workers.tasks.status_options.in_progress' },
+            { value: 'DONE', label: 'workers.tasks.status_options.done' }
           ]}
       ]
     };
@@ -127,9 +127,9 @@ export class TasksDialogSupervisorComponent implements OnInit, AfterViewInit {
         { name: 'start_date', labelKey: 'workers.tasks.start_date', type: 'date', required: true, value: task.start_date },
         { name: 'due_date', labelKey: 'workers.tasks.due_date', type: 'date', required: true, value: task.due_date },
         { name: 'status', labelKey: 'workers.tasks.status', type: 'select', required: true, value: task.status, options: [
-            { value: 'pending', label: 'workers.tasks.status_options.pending' },
-            { value: 'in_progress', label: 'workers.tasks.status_options.in_progress' },
-            { value: 'done', label: 'workers.tasks.status_options.done' }
+            { value: 'PENDING', label: 'workers.tasks.status_options.pending' },
+            { value: 'IN_PROGRESS', label: 'workers.tasks.status_options.in_progress' },
+            { value: 'DONE', label: 'workers.tasks.status_options.done' }
           ]}
       ]
     };

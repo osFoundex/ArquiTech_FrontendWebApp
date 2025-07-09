@@ -108,9 +108,9 @@ export class MachineryManagementComponent implements OnInit, AfterViewInit {
           type: 'select',
           required: true,
           options: [
-            { value: 'Available', labelKey: 'machinery.status.available' },
-            { value: 'Operational', labelKey: 'machinery.status.operational' },
-            { value: 'Under Maintenance', labelKey: 'machinery.status.under_maintenance' }
+            { value: 'AVAILABLE', labelKey: 'machinery.status.available' },
+            { value: 'OPERATIONAL', labelKey: 'machinery.status.operational' },
+            { value: 'UNDER_MAINTENANCE', labelKey: 'machinery.status.under_maintenance' }
           ]
         }
       ]
@@ -155,9 +155,9 @@ export class MachineryManagementComponent implements OnInit, AfterViewInit {
           required: true,
           value: item.status,
           options: [
-            { value: 'Available', labelKey: 'machinery.status.available' },
-            { value: 'Operational', labelKey: 'machinery.status.operational' },
-            { value: 'Under Maintenance', labelKey: 'machinery.status.under_maintenance' }
+            { value: 'AVAILABLE', labelKey: 'machinery.status.available' },
+            { value: 'OPERATIONAL', labelKey: 'machinery.status.operational' },
+            { value: 'UNDER_MAINTENANCE', labelKey: 'machinery.status.under_maintenance' }
           ]
         }
       ]

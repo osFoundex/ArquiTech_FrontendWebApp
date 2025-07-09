@@ -159,9 +159,9 @@ export class IncidentManagementComponent implements OnInit, AfterViewInit {
           required: true,
           value: item.severity,
           options: [
-            { value: 'Low', labelKey: 'incidents.severity.low' },
-            { value: 'Medium', labelKey: 'incidents.severity.medium' },
-            { value: 'High', labelKey: 'incidents.severity.high' }
+            { value: 'LOW', labelKey: 'incidents.severity.low' },
+            { value: 'MEDIUM', labelKey: 'incidents.severity.medium' },
+            { value: 'HIGH', labelKey: 'incidents.severity.high' }
           ]
         },
         { name: 'status',
@@ -170,8 +170,8 @@ export class IncidentManagementComponent implements OnInit, AfterViewInit {
           required: true,
           value: item.status,
           options: [
-            { value: 'Pending', labelKey: 'incidents.status.pending' },
-            { value: 'Resolved', labelKey: 'incidents.status.resolved' }
+            { value: 'PENDING', labelKey: 'incidents.status.pending' },
+            { value: 'RESOLVED', labelKey: 'incidents.status.resolved' }
           ]
         }
       ]
