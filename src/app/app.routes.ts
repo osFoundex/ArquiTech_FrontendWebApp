@@ -31,13 +31,13 @@ export const routes: Routes = [
     path: 'projects',
     component: ProjectManagementComponent,
     canActivate: [authGuard],
-    data: { roles: ['Supervisor'] }
+    data: { roles: ['supervisor'] }
   },
   {
     path: 'details/:id',
     component: DetailManagementComponent,
     canActivate: [authGuard],
-    data: { roles: ['Supervisor'] },
+    data: { roles: ['supervisor'] },
     children: [
       { path: '', redirectTo: 'materials', pathMatch: 'full' },
       { path: 'materials',
@@ -56,13 +56,13 @@ export const routes: Routes = [
     path: 'contractor/projects',
     component: ProjectContractorComponent,
     canActivate: [authGuard],
-    data: { roles: ['Contractor'] }
+    data: { roles: ['contractor'] }
   },
   {
     path: 'contractor/details/:id',
     component: ContractorDetailsComponent,
     canActivate: [authGuard],
-    data: { roles: ['Contractor'] },
+    data: { roles: ['contractor'] },
     children: [
       { path: '', redirectTo: 'reports', pathMatch: 'full' },
       { path: 'reports', component: ProjectReportsContractorComponent },

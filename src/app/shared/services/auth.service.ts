@@ -5,61 +5,69 @@ import { catchError, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 import {environment} from '../../../environments/environment';
-export interface User {
+export interface AuthenticatedUser  {
   id: number;
   name: string;
   email: string;
-  password: string;
   role: string;
-  profile_picture: string;
+  token: string;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private usersUrl = environment.serverBaseUrl + environment.usersEndpointPath; // Adjust the URL as needed
-
   constructor(private http: HttpClient, private router: Router) {}
 
-  login(email: string, password: string): Observable<{ user: User; token: string } | null> {
-    return this.http.get<User[]>(this.usersUrl).pipe(
-      map((users: User[]) => {
-        const user = users.find(u => u.email === email && u.password === password);
-        if (user) {
-          const token = 'mock-token-' + Math.random().toString(36).substring(2);
-          this.setUser(user, token);
-          // Redirect based on role
-          if (user.role === 'Contractor') {
-            this.router.navigate(['/contractor/projects']);
-          } else if (user.role === 'Supervisor') {
-            this.router.navigate(['/projects']);
-          }
-          return { user, token };
+  login(email: string, password: string): Observable<AuthenticatedUser | null> {
+    const loginUrl = `${environment.serverBaseUrl}/authentication/sign-in`;
+    return this.http.post<AuthenticatedUser>(loginUrl, { email, password }).pipe(
+      map((response) => {
+        if (!response || !response.token || !response.email || !response.role) {
+          throw new Error('Invalid response structure');
         }
-        throw new Error('Invalid credentials');
+
+        this.setUser(response);
+
+        this.redirectByRole(response.role);
+
+        return response;
       }),
       catchError((err) => {
         console.error('Login error:', err);
         return of(null);
       })
     );
+
+  }
+  private  redirectByRole(role: string): void {
+    if (role === 'SUPERVISOR') {
+      console.log('Navigating to /projects');
+      this.router.navigate(['/projects']);
+    } else if (role === 'CONTRACTOR') {
+      console.log('Navigating to /contractor/projects');
+      this.router.navigate(['/contractor/projects']);
+    }
   }
 
-  setUser(user: User, token: string): void {
-    localStorage.setItem('id', user.id.toString());
-    localStorage.setItem('token', token);
-    localStorage.setItem('user_name', user.name);
-    localStorage.setItem('user_role', user.role);
+  setUser(user: AuthenticatedUser): void {
+    localStorage.setItem('token', user.token);
+    localStorage.setItem('email', user.email);
+    localStorage.setItem('role', user.role);
+    localStorage.setItem('user_id', user.id.toString());
+    localStorage.setItem('name', user.name);
   }
 
   getUserId(): number | null {
-    const userId = localStorage.getItem('id');
+    const userId = localStorage.getItem('user_id');
     return userId ? Number(userId) : null;
   }
 
   getUserRole(): string {
-    return localStorage.getItem('user_role') || '';
+    return localStorage.getItem('role') || '';
+  }
+  getUserName(): string {
+    return localStorage.getItem('name') || '';
   }
 
   isAuthenticated(): boolean {
@@ -67,10 +75,12 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('id');
     localStorage.removeItem('token');
-    localStorage.removeItem('user_name');
-    localStorage.removeItem('user_role');
+    localStorage.removeItem('email');
+    localStorage.removeItem('role');
+    localStorage.removeItem('user_id');
+    localStorage.removeItem('name');
     this.router.navigate(['/login']);
   }
+
 }

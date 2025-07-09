@@ -9,7 +9,7 @@ import {MatListItem, MatNavList} from '@angular/material/list';
 import {MatIcon} from '@angular/material/icon';
 
 @Component({
-  selector: 'app-detail-management',
+  selector: 'app-contractor-details',
   standalone: true,
   imports: [
     RouterOutlet,
