@@ -106,17 +106,17 @@ export class IncidentManagementComponent implements OnInit, AfterViewInit {
           type: 'select',
           required: true,
           options: [
-            { value: 'Low', labelKey: 'incidents.severity.low' },
-            { value: 'Medium', labelKey: 'incidents.severity.medium' },
-            { value: 'High', labelKey: 'incidents.severity.high' }
+            { value: 'LOW', labelKey: 'incidents.severity.low' },
+            { value: 'MEDIUM', labelKey: 'incidents.severity.medium' },
+            { value: 'HIGH', labelKey: 'incidents.severity.high' }
           ]},
         { name: 'status',
           labelKey: 'incidents.i_status',
           type: 'select',
           required: true,
           options: [
-            { value: 'Pending', labelKey: 'incidents.status.pending' },
-            { value: 'Resolved', labelKey: 'incidents.status.resolved' }
+            { value: 'PENDING', labelKey: 'incidents.status.pending' },
+            { value: 'RESOLVED', labelKey: 'incidents.status.resolved' }
           ]}
       ]
     };
@@ -134,8 +134,8 @@ export class IncidentManagementComponent implements OnInit, AfterViewInit {
         project_id: this.projectId,
         ...result
       }).subscribe({
-        next: response => {
-          this.dataSource.data = [...this.dataSource.data, response];
+        next: () => {
+          this.getAllIncidents();
         },
         error: err => {
           console.error('Error creando incidente:', err);
